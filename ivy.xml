@@ -1,0 +1,23 @@
+<ivy-module version="1.1">
+  <info organisation="org.gwtmpv" module="todomvc" revision="${version}" />
+  <configurations>
+    <conf name="default" extends="compile"/>
+    <conf name="compile" visibility="private"/>
+    <conf name="test" visibility="private"/>
+    <conf name="provided" visibility="private"/>
+    <conf name="sources"/>
+  </configurations>
+
+  <dependencies defaultconfmapping="sources->sources();%->default">
+    <dependency org="com.google.gwt" name="gwt-servlet" rev="2.4.0" conf="compile,sources"/>
+    <dependency org="com.google.gwt" name="gwt-user" rev="2.4.0" conf="provided,sources"/>
+    <dependency org="com.google.gwt" name="gwt-dev" rev="2.4.0" conf="provided,sources"/>
+
+    <dependency org="org.gwtmpv" name="gwt-mpv-user" rev="0.34.0" conf="compile,sources"/>
+    <dependency org="org.gwtmpv" name="gwt-mpv-dev" rev="0.34.0" conf="provided,sources"/>
+    <dependency org="org.gwtmpv" name="gwt-mpv-apt" rev="1.12" conf="provided,sources"/>
+
+    <dependency org="org.hamcrest" name="hamcrest-all" rev="1.2" conf="test,sources"/>
+    <dependency org="junit" name="junit" rev="4.8.1" conf="test,sources"/>
+  </dependencies>
+</ivy-module>

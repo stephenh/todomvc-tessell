@@ -1,0 +1,77 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder" xmlns:gwt="urn:import:com.google.gwt.user.client.ui">
+  <ui:style>
+    .todo-stats {
+      zoom: 1;
+      margin-top: 10px;
+      background: #f4fce8;
+      border-top: 1px solid #ededed;
+      color: #555555;
+      line-height: 36px;
+      padding: 0 20px;
+      -X-border-bottom-left-radius: 5px;
+      -X-border-bottom-right-radius: 5px;
+    }
+
+    .todo-stats:after {
+      content: "\0020";
+      display: block;
+      height: 0;
+      clear: both;
+      overflow: hidden;
+      visibility: hidden;
+    }
+    
+    .todo-count {
+      float: left;
+    }
+    
+    .number {
+      font-weight: bold;
+      color: #555555;
+    }
+    
+    .todo-clear {
+      float: right;
+    }
+    
+    .todo-clear a {
+      display: block;
+      line-height: 20px;
+      text-decoration: none;
+      -X-border-radius: 12px;
+      background: rgba(0, 0, 0, 0.1);
+      color: #555555;
+      font-size: 11px;
+      margin-top: 8px;
+      padding: 0 10px 1px;
+      -X-box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 0 0;
+      cursor: pointer;
+    }
+    
+    .todo-clear a:visited {
+      color: #777777;
+    }
+
+    .todo-clear a:hover {
+      color: #336699;
+      background: rgba(0, 0, 0, 0.15);
+      -X-box-shadow: rgba(0, 0, 0, 0.3) 0 -1px 0 0;
+    }
+
+    .todo-clear a:active {
+      position: relative;
+      top: 1px;
+    }
+  </ui:style>
+  <gwt:HTMLPanel ui:field="stats" styleName="{style.todo-stats}">
+    <span class="{style.todo-count}">
+      <span ui:field="numberLeft" class="{style.number}" />
+      <span ui:field="numberLeftWord" />
+      left.
+    </span>
+    <span class="{style.todo-clear}">
+      <gwt:Anchor ui:field="clearCompletedAnchor" />
+    </span>
+  </gwt:HTMLPanel>
+</ui:UiBinder>

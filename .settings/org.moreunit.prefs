@@ -1,0 +1,6 @@
+#Sat Sep 17 01:32:00 CDT 2011
+eclipse.preferences.version=1
+org.moreunit.prefixes=
+org.moreunit.test_type=junit4
+org.moreunit.unitsourcefolder=todomvc\:src\:todomvc\:test
+org.moreunit.useprojectsettings=true

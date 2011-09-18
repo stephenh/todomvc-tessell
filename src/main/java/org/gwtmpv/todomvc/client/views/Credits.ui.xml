@@ -1,0 +1,23 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder" xmlns:gwt="urn:import:com.google.gwt.user.client.ui">
+  <ui:style>
+    .credits {
+      width: 520px;
+      margin: 30px auto;
+      color: #999;
+      text-shadow: rgba(255, 255, 255, 0.8) 0 1px 0;
+      text-align: center;
+    }
+
+    .credits a {
+      color: #888;
+    }
+  </ui:style>
+  <gwt:HTMLPanel styleName="{style.credits}">
+    Created by: <a href="http://jgn.me/">J&eacute;r&ocirc;me Gravel-Niquet</a>.
+    <br />
+    Cleanup, edits: <a href="http://addyosmani.com">Addy Osmani</a>.
+    <br />
+    gwt-mpv port: <a href="http://draconianoverlord.com">Stephen Haberman</a>.
+  </gwt:HTMLPanel>
+</ui:UiBinder>

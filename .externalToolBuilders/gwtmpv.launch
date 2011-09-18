@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.eclipse.ui.externaltools.ProgramBuilderLaunchConfigurationType">
+<stringAttribute key="org.eclipse.debug.core.ATTR_REFRESH_SCOPE" value="${working_set:&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#10;&lt;resources&gt;&#10;&lt;item path=&quot;/todomvc/target/gen-java-src&quot; type=&quot;2&quot;/&gt;&#10;&lt;/resources&gt;}"/>
+<booleanAttribute key="org.eclipse.debug.ui.ATTR_LAUNCH_IN_BACKGROUND" value="false"/>
+<stringAttribute key="org.eclipse.ui.externaltools.ATTR_BUILD_SCOPE" value="${working_set:&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#10;&lt;resources&gt;&#10;&lt;item path=&quot;/todomvc/src/main/java/org/gwtmpv/todomvc/client/resources&quot; type=&quot;2&quot;/&gt;&#10;&lt;item path=&quot;/todomvc/src/main/java/org/gwtmpv/todomvc/client/views&quot; type=&quot;2&quot;/&gt;&#10;&lt;/resources&gt;}"/>
+<stringAttribute key="org.eclipse.ui.externaltools.ATTR_LOCATION" value="${system_path:java}"/>
+<stringAttribute key="org.eclipse.ui.externaltools.ATTR_RUN_BUILD_KINDS" value="full,incremental,auto,"/>
+<stringAttribute key="org.eclipse.ui.externaltools.ATTR_TOOL_ARGUMENTS" value="-cp &quot;target/lib/provided/*:war/WEB-INF/classes:${resource_loc:/gwt-mpv-dev/bin/eclipse}:${resource_loc:/gwt-mpv-user/bin/eclipse}&quot;&#10;org.gwtmpv.generators.Generator&#10;--inputDirectory src/main/java&#10;--outputDirectory target/gen-java-src&#10;--viewsPackageName org.gwtmpv.todomvc.client.views&#10;--resourcesPackageName org.gwtmpv.todomvc.client.resources"/>
+<booleanAttribute key="org.eclipse.ui.externaltools.ATTR_TRIGGERS_CONFIGURED" value="true"/>
+<stringAttribute key="org.eclipse.ui.externaltools.ATTR_WORKING_DIRECTORY" value="${workspace_loc:/todomvc}"/>
+</launchConfiguration>
