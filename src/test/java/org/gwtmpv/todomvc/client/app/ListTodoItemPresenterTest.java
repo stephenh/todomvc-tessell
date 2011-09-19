@@ -63,7 +63,7 @@ public class ListTodoItemPresenterTest extends AbstractPresenterTest {
     v.content().doubleClick();
     v.editBox().type("new name");
     v.editBox().keyDown(KeyCodes.KEY_ENTER);
-    assertThat(todo.getName(), is("new name"));
+    assertThat(todo.name.get(), is("new name"));
     assertThat(v.content.getText(), is("new name"));
   }
 
@@ -74,6 +74,13 @@ public class ListTodoItemPresenterTest extends AbstractPresenterTest {
     assertThat(v.displayPanel(), is(shown()));
     assertThat(v.editPanel(), is(hidden()));
     assertThat(v.li(), not(hasStyle(s.editing())));
+  }
+
+  @Test
+  public void checkDoneChangesTheModel() {
+    assertThat(todo.done.get(), is(false));
+    v.checkBox().check();
+    assertThat(todo.done.get(), is(true));
   }
 
   @Test
