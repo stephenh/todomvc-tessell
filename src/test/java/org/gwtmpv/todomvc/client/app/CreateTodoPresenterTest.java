@@ -28,10 +28,11 @@ public class CreateTodoPresenterTest extends AbstractPresenterTest {
     v.newTodo().type("new task");
     v.newTodo().keyDown(KeyCodes.KEY_ENTER);
     assertThat(todos.get().size(), is(1));
+    assertThat(todos.get().get(0).getName(), is("new task"));
   }
 
   @Test
-  public void enterOnSomeContentClearsBox() {
+  public void enterOnSomeContentClearsBoxForNextEntry() {
     v.newTodo().type("new task");
     v.newTodo().keyDown(KeyCodes.KEY_ENTER);
     assertThat(v.newTodo().getText(), is(""));
