@@ -73,8 +73,4 @@ public class ListTodoItemPresenter extends BasicPresenter<IsListTodoItemView> {
     });
   }
 
-  public boolean isFor(Todo other) {
-    return todo == other;
-  }
-
 }
