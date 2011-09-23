@@ -43,6 +43,7 @@ public class ListTodoItemPresenter extends BasicPresenter<IsListTodoItemView> {
     binder.when(editing).is(true).set(s.editing()).on(view.li());
     view.content().setText(todo.name.get());
 
+    binder.bind(todo.name).to(view.editBox());
     binder.bind(todo.name).toTextOf(view.content());
 
     binder.bind(todo.done).to(view.checkBox());
@@ -52,7 +53,6 @@ public class ListTodoItemPresenter extends BasicPresenter<IsListTodoItemView> {
     view.content().addDoubleClickHandler(new DoubleClickHandler() {
       public void onDoubleClick(DoubleClickEvent event) {
         editing.set(true);
-        view.editBox().setText(todo.name.get());
         view.editBox().setFocus(true);
       }
     });
@@ -61,7 +61,6 @@ public class ListTodoItemPresenter extends BasicPresenter<IsListTodoItemView> {
       public void onKeyDown(KeyDownEvent event) {
         if (event.getNativeKeyCode() == KeyCodes.KEY_ENTER) {
           editing.set(false);
-          todo.name.set(view.editBox().getText());
         }
       }
     });
