@@ -10,15 +10,12 @@ import org.gwtmpv.todomvc.client.views.IsAppView;
 public class AppPresenter extends BasicPresenter<IsAppView> {
 
   private final AppState state = new AppState();
-  private final CreateTodoPresenter createTodo;
-  private final StatsTodoPresenter statsTodo;
-  private final ListTodoPresenter listTodos;
+  private final CreateTodoPresenter createTodo = addPresenter(new CreateTodoPresenter(state.allTodos));
+  private final StatsTodoPresenter statsTodo = addPresenter(new StatsTodoPresenter(state));
+  private final ListTodoPresenter listTodos = addPresenter(new ListTodoPresenter(state));
 
   public AppPresenter() {
     super(newAppView());
-    createTodo = addPresenter(new CreateTodoPresenter(state.allTodos));
-    statsTodo = addPresenter(new StatsTodoPresenter(state));
-    listTodos = addPresenter(new ListTodoPresenter(state));
   }
 
   @Override
