@@ -28,11 +28,12 @@ public class CreateTodoPresenter extends BasicPresenter<IsCreateTodoView> {
       public void onKeyDown(KeyDownEvent event) {
         if (event.getNativeKeyCode() == KeyCodes.KEY_ENTER) {
           String newName = view.newTodo().getText();
-          if (newName != null) {
-            Todo task = new Todo(newName);
-            allTodos.add(task);
-            view.newTodo().setText(null);
+          if ("".equals(newName)) {
+            return;
           }
+          Todo task = new Todo(newName);
+          allTodos.add(task);
+          view.newTodo().setText(null);
         }
       }
     });
