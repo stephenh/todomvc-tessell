@@ -1,5 +1,6 @@
 package org.gwtmpv.todomvc.client.app;
 
+import static org.gwtmpv.model.dsl.TakesValues.textOf;
 import static org.gwtmpv.todomvc.client.views.AppViews.newTodoStatsView;
 
 import org.gwtmpv.model.dsl.Binder;
@@ -15,7 +16,7 @@ import com.google.gwt.event.dom.client.ClickHandler;
 public class StatsTodoPresenter extends BasicPresenter<IsTodoStatsView> {
 
   private final AppState state;
-  private final Binder binder = new Binder(this);
+  private final Binder binder = new Binder();
   private final StringProperty leftText;
   private final StringProperty clearText;
 
@@ -29,9 +30,9 @@ public class StatsTodoPresenter extends BasicPresenter<IsTodoStatsView> {
   @Override
   public void onBind() {
     super.onBind();
-    binder.bind(state.numberLeft.asString()).toTextOf(view.numberLeft());
-    binder.bind(leftText).toTextOf(view.numberLeftWord());
-    binder.bind(clearText).toTextOf(view.clearCompletedAnchor());
+    binder.bind(state.numberLeft.asString()).to(textOf(view.numberLeft()));
+    binder.bind(leftText).to(textOf(view.numberLeftWord()));
+    binder.bind(clearText).to(textOf(view.clearCompletedAnchor()));
     binder.when(state.doneTodos.size()).is(0).hide(view.clearCompletedAnchor());
     binder.when(state.allTodos.size()).is(0).hide(view.stats());
     

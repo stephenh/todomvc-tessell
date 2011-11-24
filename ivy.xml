@@ -13,8 +13,8 @@
     <dependency org="com.google.gwt" name="gwt-user" rev="2.4.0" conf="provided,sources"/>
     <dependency org="com.google.gwt" name="gwt-dev" rev="2.4.0" conf="provided,sources"/>
 
-    <dependency org="org.gwtmpv" name="gwt-mpv-user" rev="1.0.0" conf="compile,sources"/>
-    <dependency org="org.gwtmpv" name="gwt-mpv-dev" rev="1.0.0" conf="provided,sources"/>
+    <dependency org="org.gwtmpv" name="gwt-mpv-user" rev="1.2.4" conf="compile,sources"/>
+    <dependency org="org.gwtmpv" name="gwt-mpv-dev" rev="1.2.4" conf="provided,sources"/>
 
     <dependency org="org.hamcrest" name="hamcrest-all" rev="1.2" conf="test,sources"/>
     <dependency org="junit" name="junit" rev="4.8.1" conf="test,sources"/>

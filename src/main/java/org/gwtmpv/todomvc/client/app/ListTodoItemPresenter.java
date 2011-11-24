@@ -1,5 +1,6 @@
 package org.gwtmpv.todomvc.client.app;
 
+import static org.gwtmpv.model.dsl.TakesValues.textOf;
 import static org.gwtmpv.model.properties.NewProperty.booleanProperty;
 import static org.gwtmpv.todomvc.client.views.AppViews.newListTodoItemView;
 
@@ -22,7 +23,7 @@ import com.google.gwt.event.dom.client.KeyDownHandler;
 public class ListTodoItemPresenter extends BasicPresenter<IsListTodoItemView> {
 
   private final BooleanProperty editing = booleanProperty("editing", false);
-  private final Binder binder = new Binder(this);
+  private final Binder binder = new Binder();
   private final AppState state;
   private final Todo todo;
   private final ListTodoItemStyle s;
@@ -44,7 +45,7 @@ public class ListTodoItemPresenter extends BasicPresenter<IsListTodoItemView> {
     view.content().setText(todo.name.get());
 
     binder.bind(todo.name).to(view.editBox());
-    binder.bind(todo.name).toTextOf(view.content());
+    binder.bind(todo.name).to(textOf(view.content()));
 
     binder.bind(todo.done).to(view.checkBox());
     binder.when(todo.done).is(true).set(s.done()).on(view.li());

@@ -13,7 +13,7 @@ import org.gwtmpv.todomvc.client.views.IsListTodoView;
 public class ListTodoPresenter extends BasicPresenter<IsListTodoView> {
 
   private final AppState state;
-  private final Binder binder = new Binder(this);
+  private final Binder binder = new Binder();
 
   public ListTodoPresenter(AppState state) {
     super(newListTodoView());
