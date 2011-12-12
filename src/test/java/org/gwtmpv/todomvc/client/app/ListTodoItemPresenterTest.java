@@ -64,7 +64,7 @@ public class ListTodoItemPresenterTest extends AbstractPresenterTest {
     v.editBox().type("new name");
     v.editBox().keyDown(KeyCodes.KEY_ENTER);
     assertThat(todo.name.get(), is("new name"));
-    assertThat(v.content.getText(), is("new name"));
+    assertThat(v.content().getText(), is("new name"));
   }
 
   @Test
