@@ -19,7 +19,7 @@ public class AppState {
       public Integer get() {
         return allTodos.get().size() - doneTodos.get().size();
       }
-    }).depends(allTodos, doneTodos);
+    });
   }
 
   public void removeDone() {
