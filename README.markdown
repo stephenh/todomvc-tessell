@@ -1,6 +1,8 @@
 
 A port of the [todomvc](https://github.com/addyosmani/todomvc) JS sample application to [gwt-mpv](http://www.gwtmpv.org).
 
+See [todomvc in gwt-mpv](http://www.draconianoverlord.com/2011/12/10/todomvc-in-gwt-mpv.html) for a more detailed write up.
+
 Building
 ========
 
