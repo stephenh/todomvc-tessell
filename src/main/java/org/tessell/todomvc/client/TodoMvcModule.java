@@ -1,10 +1,10 @@
-package org.gwtmpv.todomvc.client;
+package org.tessell.todomvc.client;
 
-import org.gwtmpv.todomvc.client.app.AppPresenter;
-import org.gwtmpv.todomvc.client.resources.AppResources;
-import org.gwtmpv.todomvc.client.resources.AppResourcesUtil;
-import org.gwtmpv.todomvc.client.views.AppViews;
-import org.gwtmpv.todomvc.client.views.GwtViewsProvider;
+import org.tessell.todomvc.client.app.AppPresenter;
+import org.tessell.todomvc.client.resources.AppResources;
+import org.tessell.todomvc.client.resources.AppResourcesUtil;
+import org.tessell.todomvc.client.views.AppViews;
+import org.tessell.todomvc.client.views.GwtViewsProvider;
 
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;

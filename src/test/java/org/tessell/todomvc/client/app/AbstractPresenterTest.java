@@ -1,7 +1,7 @@
-package org.gwtmpv.todomvc.client.app;
+package org.tessell.todomvc.client.app;
 
-import org.gwtmpv.presenter.Presenter;
-import org.gwtmpv.todomvc.client.views.StubViewsProvider;
+import org.tessell.presenter.Presenter;
+import org.tessell.todomvc.client.views.StubViewsProvider;
 
 public abstract class AbstractPresenterTest {
   

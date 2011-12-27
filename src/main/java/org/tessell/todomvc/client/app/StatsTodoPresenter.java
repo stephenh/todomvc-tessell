@@ -1,14 +1,14 @@
-package org.gwtmpv.todomvc.client.app;
+package org.tessell.todomvc.client.app;
 
-import static org.gwtmpv.model.dsl.TakesValues.textOf;
-import static org.gwtmpv.todomvc.client.views.AppViews.newTodoStatsView;
+import static org.tessell.model.dsl.TakesValues.textOf;
+import static org.tessell.todomvc.client.views.AppViews.newTodoStatsView;
 
-import org.gwtmpv.model.dsl.Binder;
-import org.gwtmpv.model.properties.StringProperty;
-import org.gwtmpv.model.values.DerivedValue;
-import org.gwtmpv.presenter.BasicPresenter;
-import org.gwtmpv.todomvc.client.model.AppState;
-import org.gwtmpv.todomvc.client.views.IsTodoStatsView;
+import org.tessell.model.dsl.Binder;
+import org.tessell.model.properties.StringProperty;
+import org.tessell.model.values.DerivedValue;
+import org.tessell.presenter.BasicPresenter;
+import org.tessell.todomvc.client.model.AppState;
+import org.tessell.todomvc.client.views.IsTodoStatsView;
 
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;

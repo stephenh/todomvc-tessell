@@ -2,7 +2,7 @@
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder" xmlns:gwt="urn:import:com.google.gwt.user.client.ui">
   <ui:data field="destroy" src="../resources/destroy.png" />
   <ui:data field="destroyHover" src="../resources/destroy-hover.png" />
-  <ui:style type="org.gwtmpv.todomvc.client.views.ListTodoItemStyle">
+  <ui:style type="org.tessell.todomvc.client.views.ListTodoItemStyle">
     .todo {
       padding: 15px 20px 15px 0;
       position: relative;

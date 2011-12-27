@@ -4,11 +4,11 @@
   <inherits name="com.google.gwt.user.User" />
   <inherits name="com.google.gwt.uibinder.UiBinder" />
   <inherits name="com.google.gwt.resources.Resources" />
-  <inherits name="org.gwtmpv.GwtMpv" />
+  <inherits name="org.tessell.Tessell" />
 
   <source path="client">
     <exclude name="**/Stub*" />
   </source>
 
-  <entry-point class="org.gwtmpv.todomvc.client.TodoMvcModule" />
+  <entry-point class="org.tessell.todomvc.client.TodoMvcModule" />
 </module>

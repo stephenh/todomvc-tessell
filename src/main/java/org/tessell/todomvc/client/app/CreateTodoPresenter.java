@@ -1,11 +1,11 @@
-package org.gwtmpv.todomvc.client.app;
+package org.tessell.todomvc.client.app;
 
-import static org.gwtmpv.todomvc.client.views.AppViews.newCreateTodoView;
+import static org.tessell.todomvc.client.views.AppViews.newCreateTodoView;
 
-import org.gwtmpv.model.properties.ListProperty;
-import org.gwtmpv.presenter.BasicPresenter;
-import org.gwtmpv.todomvc.client.model.Todo;
-import org.gwtmpv.todomvc.client.views.IsCreateTodoView;
+import org.tessell.model.properties.ListProperty;
+import org.tessell.presenter.BasicPresenter;
+import org.tessell.todomvc.client.model.Todo;
+import org.tessell.todomvc.client.views.IsCreateTodoView;
 
 import com.google.gwt.event.dom.client.KeyCodes;
 import com.google.gwt.event.dom.client.KeyDownEvent;

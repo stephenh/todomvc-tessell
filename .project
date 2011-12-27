@@ -26,7 +26,7 @@
 			<arguments>
 				<dictionary>
 					<key>LaunchConfigHandle</key>
-					<value>&lt;project&gt;/.externalToolBuilders/gwtmpv.launch</value>
+					<value>&lt;project&gt;/.externalToolBuilders/tessell.launch</value>
 				</dictionary>
 			</arguments>
 		</buildCommand>

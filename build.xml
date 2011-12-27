@@ -6,9 +6,9 @@
 		<delete dir="target"/>
 	</target>
 
-	<target name="gwtmpv-codegen" depends="ivy-retrieve" description="generates gwt-mpv output">
+	<target name="tessell-codegen" depends="ivy-retrieve" description="generates tessell output">
 		<mkdir dir="target/generated/java"/>
-		<java classname="org.gwtmpv.generators.Generator" fork="true" failonerror="true">
+		<java classname="org.tessell.generators.Generator" fork="true" failonerror="true">
 			<classpath>
 				<fileset dir="target/lib/compile/jars" includes="*.jar"/>
 				<fileset dir="target/lib/provided/jars" includes="*.jar"/>
@@ -18,13 +18,13 @@
 			<arg value="--outputDirectory" />
 			<arg value="target/generated/java" />
 			<arg value="--viewsPackageName" />
-			<arg value="org.gwtmpv.todomvc.client.views" />
+			<arg value="org.tessell.todomvc.client.views" />
 			<arg value="--resourcesPackageName" />
-			<arg value="org.gwtmpv.todomvc.client.resources" />
+			<arg value="org.tessell.todomvc.client.resources" />
 		</java>
 	</target>
 
-	<target name="compile" depends="ivy-retrieve,gwtmpv-codegen" description="compiles the server-side bytecode">
+	<target name="compile" depends="ivy-retrieve,tessell-codegen" description="compiles the server-side bytecode">
 		<mkdir dir="target/classes"/>
 		<!-- compile .class files -->
 		<javac destdir="target/classes" debug="true" nowarn="yes" source="1.6" target="1.6" encoding="utf8">
@@ -48,7 +48,7 @@
 			</classpath>
 			<arg value="-war" />
 			<arg value="target/generated/gwt/${ant.project.name}" />
-			<arg value="org.gwtmpv.todomvc.TodoMvc" />
+			<arg value="org.tessell.todomvc.TodoMvc" />
 		</java>
 	</target>
 
@@ -56,7 +56,7 @@
 		<jar destfile="target/${ant.project.name}.war">
 			<fileset dir="src/main/webapp" excludes="WEB-INF/classes/,WEB-INF/lib/,WEB-INF/deploy/,todomvc/" />
 			<fileset dir="target/generated/gwt/${ant.project.name}" />
-			<zipfileset dir="target/classes" includes="**/*.class" excludes="org/gwtmpv/todomvc/" prefix="WEB-INF/classes"/>
+			<zipfileset dir="target/classes" includes="**/*.class" excludes="org/tessell/todomvc/" prefix="WEB-INF/classes"/>
 			<zipfileset dir="target/lib/compile/jars" includes="*.jar" prefix="WEB-INF/lib"/>
 		</jar>
 	</target>

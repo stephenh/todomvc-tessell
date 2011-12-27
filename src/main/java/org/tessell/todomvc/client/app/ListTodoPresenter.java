@@ -1,14 +1,14 @@
-package org.gwtmpv.todomvc.client.app;
+package org.tessell.todomvc.client.app;
 
-import static org.gwtmpv.todomvc.client.views.AppViews.newListTodoView;
+import static org.tessell.todomvc.client.views.AppViews.newListTodoView;
 
-import org.gwtmpv.model.dsl.Binder;
-import org.gwtmpv.model.dsl.ListPropertyBinder.ListPresenterFactory;
-import org.gwtmpv.presenter.BasicPresenter;
-import org.gwtmpv.presenter.Presenter;
-import org.gwtmpv.todomvc.client.model.AppState;
-import org.gwtmpv.todomvc.client.model.Todo;
-import org.gwtmpv.todomvc.client.views.IsListTodoView;
+import org.tessell.model.dsl.Binder;
+import org.tessell.model.dsl.ListPropertyBinder.ListPresenterFactory;
+import org.tessell.presenter.BasicPresenter;
+import org.tessell.presenter.Presenter;
+import org.tessell.todomvc.client.model.AppState;
+import org.tessell.todomvc.client.model.Todo;
+import org.tessell.todomvc.client.views.IsListTodoView;
 
 public class ListTodoPresenter extends BasicPresenter<IsListTodoView> {
 

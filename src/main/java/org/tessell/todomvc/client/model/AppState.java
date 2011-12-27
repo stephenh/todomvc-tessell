@@ -1,11 +1,11 @@
-package org.gwtmpv.todomvc.client.model;
+package org.tessell.todomvc.client.model;
 
-import static org.gwtmpv.model.properties.NewProperty.integerProperty;
-import static org.gwtmpv.model.properties.NewProperty.listProperty;
+import static org.tessell.model.properties.NewProperty.integerProperty;
+import static org.tessell.model.properties.NewProperty.listProperty;
 
-import org.gwtmpv.model.properties.IntegerProperty;
-import org.gwtmpv.model.properties.ListProperty;
-import org.gwtmpv.model.values.DerivedValue;
+import org.tessell.model.properties.IntegerProperty;
+import org.tessell.model.properties.ListProperty;
+import org.tessell.model.values.DerivedValue;
 
 public class AppState {
 

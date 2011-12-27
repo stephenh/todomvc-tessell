@@ -1,14 +1,14 @@
-package org.gwtmpv.todomvc.client.app;
+package org.tessell.todomvc.client.app;
 
-import static org.gwtmpv.testing.MpvMatchers.hidden;
-import static org.gwtmpv.testing.MpvMatchers.shown;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
+import static org.tessell.testing.TessellMatchers.hidden;
+import static org.tessell.testing.TessellMatchers.shown;
 
-import org.gwtmpv.todomvc.client.model.AppState;
-import org.gwtmpv.todomvc.client.model.Todo;
-import org.gwtmpv.todomvc.client.views.StubTodoStatsView;
 import org.junit.Test;
+import org.tessell.todomvc.client.model.AppState;
+import org.tessell.todomvc.client.model.Todo;
+import org.tessell.todomvc.client.views.StubTodoStatsView;
 
 public class StatsTodoPresenterTest extends AbstractPresenterTest {
 

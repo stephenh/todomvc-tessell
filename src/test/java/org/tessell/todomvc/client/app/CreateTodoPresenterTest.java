@@ -1,13 +1,13 @@
-package org.gwtmpv.todomvc.client.app;
+package org.tessell.todomvc.client.app;
 
-import static org.gwtmpv.model.properties.NewProperty.listProperty;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
+import static org.tessell.model.properties.NewProperty.listProperty;
 
-import org.gwtmpv.model.properties.ListProperty;
-import org.gwtmpv.todomvc.client.model.Todo;
-import org.gwtmpv.todomvc.client.views.StubCreateTodoView;
 import org.junit.Test;
+import org.tessell.model.properties.ListProperty;
+import org.tessell.todomvc.client.model.Todo;
+import org.tessell.todomvc.client.views.StubCreateTodoView;
 
 import com.google.gwt.event.dom.client.KeyCodes;
 

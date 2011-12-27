@@ -1,11 +1,11 @@
-package org.gwtmpv.todomvc.client.app;
+package org.tessell.todomvc.client.app;
 
-import static org.gwtmpv.todomvc.client.views.AppViews.newAppView;
-import static org.gwtmpv.todomvc.client.views.AppViews.newCreditsView;
+import static org.tessell.todomvc.client.views.AppViews.newAppView;
+import static org.tessell.todomvc.client.views.AppViews.newCreditsView;
 
-import org.gwtmpv.presenter.BasicPresenter;
-import org.gwtmpv.todomvc.client.model.AppState;
-import org.gwtmpv.todomvc.client.views.IsAppView;
+import org.tessell.presenter.BasicPresenter;
+import org.tessell.todomvc.client.model.AppState;
+import org.tessell.todomvc.client.views.IsAppView;
 
 public class AppPresenter extends BasicPresenter<IsAppView> {
 

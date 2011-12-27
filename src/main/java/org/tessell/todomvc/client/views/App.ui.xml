@@ -1,6 +1,6 @@
 <!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder" xmlns:gwt="urn:import:com.google.gwt.user.client.ui">
-  <ui:with field="s" type="org.gwtmpv.todomvc.client.resources.TodoStyle" />
+  <ui:with field="s" type="org.tessell.todomvc.client.resources.TodoStyle" />
   <ui:style>
     .todoapp {
       width: 480px;

@@ -14,7 +14,7 @@
 </listAttribute>
 <stringAttribute key="org.eclipse.jdt.launching.CLASSPATH_PROVIDER" value="com.google.gwt.eclipse.core.moduleClasspathProvider"/>
 <stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="com.google.gwt.dev.DevMode"/>
-<stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="-war &quot;${resource_loc:/todomvc/src/main/webapp}&quot; -remoteUI &quot;${gwt_remote_ui_server_port}:${unique_id}&quot; -logLevel INFO -codeServerPort 9997 -port 8888 org.gwtmpv.todomvc.TodoMvc"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="-war &quot;${resource_loc:/todomvc/src/main/webapp}&quot; -remoteUI &quot;${gwt_remote_ui_server_port}:${unique_id}&quot; -logLevel INFO -codeServerPort 9997 -port 8888 org.tessell.todomvc.TodoMvc"/>
 <stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="todomvc"/>
 <stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value="-Xmx1g"/>
 </launchConfiguration>

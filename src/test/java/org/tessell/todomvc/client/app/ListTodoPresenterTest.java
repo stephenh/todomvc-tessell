@@ -1,12 +1,12 @@
-package org.gwtmpv.todomvc.client.app;
+package org.tessell.todomvc.client.app;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
-import org.gwtmpv.todomvc.client.model.AppState;
-import org.gwtmpv.todomvc.client.model.Todo;
-import org.gwtmpv.todomvc.client.views.StubListTodoView;
 import org.junit.Test;
+import org.tessell.todomvc.client.model.AppState;
+import org.tessell.todomvc.client.model.Todo;
+import org.tessell.todomvc.client.views.StubListTodoView;
 
 public class ListTodoPresenterTest extends AbstractPresenterTest {
 
