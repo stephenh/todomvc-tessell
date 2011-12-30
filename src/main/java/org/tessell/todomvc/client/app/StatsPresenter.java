@@ -56,8 +56,9 @@ public class StatsPresenter extends BasicPresenter<IsStatsView> {
   private StringProperty createClearProperty() {
     return new StringProperty(new DerivedValue<String>() {
       public String get() {
-        String itemText = state.doneTodos.get().size() == 1 ? "item" : "items";
-        return "Clear " + state.doneTodos.get().size() + " completed " + itemText;
+        int done = state.doneTodos.get().size();
+        String itemText = done == 1 ? "item" : "items";
+        return "Clear " + done + " completed " + itemText;
       }
     });
   }
