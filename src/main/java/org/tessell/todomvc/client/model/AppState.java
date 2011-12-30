@@ -12,15 +12,11 @@ public class AppState {
   // notably crappy encapsulation
   public final ListProperty<Todo> allTodos = listProperty("allTodos");
   public final ListProperty<Todo> doneTodos = listProperty("doneTodos");
-  public final IntegerProperty numberLeft;
-
-  public AppState() {
-    numberLeft = integerProperty(new DerivedValue<Integer>() {
-      public Integer get() {
-        return allTodos.get().size() - doneTodos.get().size();
-      }
-    });
-  }
+  public final IntegerProperty numberLeft = integerProperty(new DerivedValue<Integer>() {
+    public Integer get() {
+      return allTodos.get().size() - doneTodos.get().size();
+    }
+  });
 
   public void removeDone() {
     for (Todo done : doneTodos.get()) {
