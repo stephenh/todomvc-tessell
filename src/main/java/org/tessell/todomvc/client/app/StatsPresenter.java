@@ -17,25 +17,21 @@ public class StatsPresenter extends BasicPresenter<IsStatsView> {
 
   private final AppState state;
   private final Binder binder = new Binder();
-  private final StringProperty leftText;
-  private final StringProperty clearText;
 
   public StatsPresenter(final AppState state) {
     super(newStatsView());
     this.state = state;
-    this.leftText = createLeftProperty(state);
-    this.clearText = createClearProperty(state);
   }
 
   @Override
   public void onBind() {
     super.onBind();
     binder.bind(state.numberLeft.asString()).to(textOf(view.numberLeft()));
-    binder.bind(leftText).to(textOf(view.numberLeftWord()));
-    binder.bind(clearText).to(textOf(view.clearCompletedAnchor()));
+    binder.bind(leftText(state)).to(textOf(view.numberLeftWord()));
+    binder.bind(clearText(state)).to(textOf(view.clearCompletedAnchor()));
     binder.when(state.doneTodos.size()).is(0).hide(view.clearCompletedAnchor());
     binder.when(state.allTodos.size()).is(0).hide(view.stats());
-    
+
     view.clearCompletedAnchor().addClickHandler(new ClickHandler() {
       public void onClick(ClickEvent event) {
         state.removeDone();
@@ -44,7 +40,7 @@ public class StatsPresenter extends BasicPresenter<IsStatsView> {
   }
 
   /** @return "item" or "items" based on number left */
-  private static StringProperty createLeftProperty(final AppState state) {
+  private static StringProperty leftText(final AppState state) {
     return new StringProperty(new DerivedValue<String>() {
       public String get() {
         return state.numberLeft.get() == 1 ? "item" : "items";
@@ -53,7 +49,7 @@ public class StatsPresenter extends BasicPresenter<IsStatsView> {
   }
 
   /** @return "Clear X completed item(s) */
-  private static StringProperty createClearProperty(final AppState state) {
+  private static StringProperty clearText(final AppState state) {
     return new StringProperty(new DerivedValue<String>() {
       public String get() {
         int done = state.doneTodos.get().size();
