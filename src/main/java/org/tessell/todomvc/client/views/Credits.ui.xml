@@ -18,6 +18,6 @@
     <br />
     Cleanup, edits: <a href="http://addyosmani.com">Addy Osmani</a>.
     <br />
-    gwt-mpv port: <a href="http://draconianoverlord.com">Stephen Haberman</a>.
+    Tessell port: <a href="http://draconianoverlord.com">Stephen Haberman</a>.
   </gwt:HTMLPanel>
 </ui:UiBinder>
