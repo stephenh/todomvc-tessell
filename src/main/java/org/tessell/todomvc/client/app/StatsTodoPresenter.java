@@ -49,7 +49,7 @@ public class StatsTodoPresenter extends BasicPresenter<IsTodoStatsView> {
       public String get() {
         return state.numberLeft.get() == 1 ? "item" : "items";
       }
-    }).depends(state.numberLeft);
+    });
   }
 
   /** @return "Clear X completed item(s) */
@@ -59,6 +59,6 @@ public class StatsTodoPresenter extends BasicPresenter<IsTodoStatsView> {
         String itemText = state.doneTodos.get().size() == 1 ? "item" : "items";
         return "Clear " + state.doneTodos.get().size() + " completed " + itemText;
       }
-    }).depends(state.doneTodos);
+    });
   }
 }
