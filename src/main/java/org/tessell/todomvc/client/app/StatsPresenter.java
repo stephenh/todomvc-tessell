@@ -1,27 +1,27 @@
 package org.tessell.todomvc.client.app;
 
 import static org.tessell.model.dsl.TakesValues.textOf;
-import static org.tessell.todomvc.client.views.AppViews.newTodoStatsView;
+import static org.tessell.todomvc.client.views.AppViews.newStatsView;
 
 import org.tessell.model.dsl.Binder;
 import org.tessell.model.properties.StringProperty;
 import org.tessell.model.values.DerivedValue;
 import org.tessell.presenter.BasicPresenter;
 import org.tessell.todomvc.client.model.AppState;
-import org.tessell.todomvc.client.views.IsTodoStatsView;
+import org.tessell.todomvc.client.views.IsStatsView;
 
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 
-public class StatsTodoPresenter extends BasicPresenter<IsTodoStatsView> {
+public class StatsPresenter extends BasicPresenter<IsStatsView> {
 
   private final AppState state;
   private final Binder binder = new Binder();
   private final StringProperty leftText;
   private final StringProperty clearText;
 
-  public StatsTodoPresenter(final AppState state) {
-    super(newTodoStatsView());
+  public StatsPresenter(final AppState state) {
+    super(newStatsView());
     this.state = state;
     this.leftText = createLeftProperty();
     this.clearText = createClearProperty();

@@ -11,7 +11,7 @@ public class AppPresenter extends BasicPresenter<IsAppView> {
 
   private final AppState state = new AppState();
   private final CreateTodoPresenter createTodo = addPresenter(new CreateTodoPresenter(state.allTodos));
-  private final StatsTodoPresenter statsTodo = addPresenter(new StatsTodoPresenter(state));
+  private final StatsPresenter statsTodo = addPresenter(new StatsPresenter(state));
   private final ListTodoPresenter listTodos = addPresenter(new ListTodoPresenter(state));
 
   public AppPresenter() {
