@@ -23,8 +23,8 @@ public class StatsPresenter extends BasicPresenter<IsStatsView> {
   public StatsPresenter(final AppState state) {
     super(newStatsView());
     this.state = state;
-    this.leftText = createLeftProperty();
-    this.clearText = createClearProperty();
+    this.leftText = createLeftProperty(state);
+    this.clearText = createClearProperty(state);
   }
 
   @Override
@@ -44,7 +44,7 @@ public class StatsPresenter extends BasicPresenter<IsStatsView> {
   }
 
   /** @return "item" or "items" based on number left */
-  private StringProperty createLeftProperty() {
+  private static StringProperty createLeftProperty(final AppState state) {
     return new StringProperty(new DerivedValue<String>() {
       public String get() {
         return state.numberLeft.get() == 1 ? "item" : "items";
@@ -53,7 +53,7 @@ public class StatsPresenter extends BasicPresenter<IsStatsView> {
   }
 
   /** @return "Clear X completed item(s) */
-  private StringProperty createClearProperty() {
+  private static StringProperty createClearProperty(final AppState state) {
     return new StringProperty(new DerivedValue<String>() {
       public String get() {
         int done = state.doneTodos.get().size();
