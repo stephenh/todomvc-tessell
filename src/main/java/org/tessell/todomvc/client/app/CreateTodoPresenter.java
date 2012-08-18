@@ -31,8 +31,7 @@ public class CreateTodoPresenter extends BasicPresenter<IsCreateTodoView> {
           if ("".equals(newName)) {
             return;
           }
-          Todo task = new Todo(newName);
-          allTodos.add(task);
+          allTodos.add(new Todo(newName));
           view.newTodo().setText(null);
         }
       }

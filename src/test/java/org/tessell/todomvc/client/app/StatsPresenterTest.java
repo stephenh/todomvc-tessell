@@ -96,7 +96,7 @@ public class StatsPresenterTest extends AbstractPresenterTest {
     v.clearCompletedAnchor().click();
 
     assertThat(state.allTodos.get().size(), is(1));
-    assertThat(state.numberDone.get(), is(0));
+    assertThat(state.doneTodos.get().size(), is(0));
   }
 
   @Test

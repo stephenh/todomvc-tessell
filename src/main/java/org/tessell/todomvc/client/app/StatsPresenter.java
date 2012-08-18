@@ -29,7 +29,7 @@ public class StatsPresenter extends BasicPresenter<IsStatsView> {
     binder.bind(state.numberLeft.asString()).to(textOf(view.numberLeft()));
     binder.bind(leftText(state)).to(textOf(view.numberLeftWord()));
     binder.bind(clearText(state)).to(textOf(view.clearCompletedAnchor()));
-    binder.when(state.numberDone).is(0).hide(view.clearCompletedAnchor());
+    binder.when(state.doneTodos.size()).is(0).hide(view.clearCompletedAnchor());
     binder.when(state.allTodos.size()).is(0).hide(view.stats());
 
     view.clearCompletedAnchor().addClickHandler(new ClickHandler() {
@@ -52,7 +52,7 @@ public class StatsPresenter extends BasicPresenter<IsStatsView> {
   private static StringProperty clearText(final AppState state) {
     return new StringProperty(new DerivedValue<String>() {
       public String get() {
-        int done = state.numberDone.get();
+        int done = state.doneTodos.get().size();
         String itemText = done == 1 ? "item" : "items";
         return "Clear " + done + " completed " + itemText;
       }
