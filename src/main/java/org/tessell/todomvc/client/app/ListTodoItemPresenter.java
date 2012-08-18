@@ -12,13 +12,7 @@ import org.tessell.todomvc.client.model.Todo;
 import org.tessell.todomvc.client.views.IsListTodoItemView;
 import org.tessell.todomvc.client.views.ListTodoItemStyle;
 
-import com.google.gwt.event.dom.client.ClickEvent;
-import com.google.gwt.event.dom.client.ClickHandler;
-import com.google.gwt.event.dom.client.DoubleClickEvent;
-import com.google.gwt.event.dom.client.DoubleClickHandler;
 import com.google.gwt.event.dom.client.KeyCodes;
-import com.google.gwt.event.dom.client.KeyDownEvent;
-import com.google.gwt.event.dom.client.KeyDownHandler;
 
 public class ListTodoItemPresenter extends BasicPresenter<IsListTodoItemView> {
 
@@ -50,26 +44,12 @@ public class ListTodoItemPresenter extends BasicPresenter<IsListTodoItemView> {
     binder.bind(todo.done).to(view.checkBox());
     binder.when(todo.done).is(true).set(s.done()).on(view.li());
 
-    view.content().addDoubleClickHandler(new DoubleClickHandler() {
-      public void onDoubleClick(DoubleClickEvent event) {
-        editing.set(true);
-        view.editBox().setFocus(true);
-      }
-    });
+    binder.onDoubleClick(view.content()).set(editing).to(true);
+    binder.onDoubleClick(view.content()).focus(view.editBox());
 
-    view.editBox().addKeyDownHandler(new KeyDownHandler() {
-      public void onKeyDown(KeyDownEvent event) {
-        if (event.getNativeKeyCode() == KeyCodes.KEY_ENTER) {
-          editing.set(false);
-        }
-      }
-    });
-    
-    view.destroyAnchor().addClickHandler(new ClickHandler() {
-      public void onClick(ClickEvent event) {
-        state.allTodos.remove(todo);
-      }
-    });
+    binder.onKeyDown(view.editBox(), KeyCodes.KEY_ENTER).set(editing).to(false);
+
+    binder.onClick(view.destroyAnchor()).remove(todo).from(state.allTodos);
   }
 
 }
