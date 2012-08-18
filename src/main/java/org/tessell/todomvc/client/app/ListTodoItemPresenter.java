@@ -49,7 +49,6 @@ public class ListTodoItemPresenter extends BasicPresenter<IsListTodoItemView> {
 
     binder.bind(todo.done).to(view.checkBox());
     binder.when(todo.done).is(true).set(s.done()).on(view.li());
-    binder.when(todo.done).is(true).add(todo).to(state.doneTodos);
 
     view.content().addDoubleClickHandler(new DoubleClickHandler() {
       public void onDoubleClick(DoubleClickEvent event) {
@@ -68,7 +67,7 @@ public class ListTodoItemPresenter extends BasicPresenter<IsListTodoItemView> {
     
     view.destroyAnchor().addClickHandler(new ClickHandler() {
       public void onClick(ClickEvent event) {
-        state.destroy(todo);
+        state.allTodos.remove(todo);
       }
     });
   }

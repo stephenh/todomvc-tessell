@@ -43,7 +43,7 @@ public class StatsPresenterTest extends AbstractPresenterTest {
     assertThat(v.numberLeft().getText(), is("1"));
     assertThat(v.numberLeftWord().getText(), is("item"));
 
-    state.doneTodos.add(one);
+    one.done.set(true);
     assertThat(v.numberLeft().getText(), is("0"));
     assertThat(v.numberLeftWord().getText(), is("items"));
   }
@@ -70,7 +70,7 @@ public class StatsPresenterTest extends AbstractPresenterTest {
   public void clearCompletedIsShownWhenSomethingIsDone() {
     Todo one = new Todo("one");
     state.allTodos.add(one);
-    state.doneTodos.add(one);
+    one.done.set(true);
     assertThat(v.clearCompletedAnchor(), is(shown()));
   }
 
@@ -78,10 +78,10 @@ public class StatsPresenterTest extends AbstractPresenterTest {
   public void clearCompletedIsRehiddenWhenDoneIsEmpty() {
     Todo one = new Todo("one");
     state.allTodos.add(one);
-    state.doneTodos.add(one);
+    one.done.set(true);
     assertThat(v.clearCompletedAnchor(), is(shown()));
 
-    state.doneTodos.remove(one);
+    one.done.set(false);
     assertThat(v.clearCompletedAnchor(), is(hidden()));
   }
   
@@ -92,11 +92,11 @@ public class StatsPresenterTest extends AbstractPresenterTest {
     state.allTodos.add(one);
     state.allTodos.add(two);
     // two isn't done
-    state.doneTodos.add(one);
+    one.done.set(true);
     v.clearCompletedAnchor().click();
 
     assertThat(state.allTodos.get().size(), is(1));
-    assertThat(state.doneTodos.get().size(), is(0));
+    assertThat(state.numberDone.get(), is(0));
   }
 
   @Test

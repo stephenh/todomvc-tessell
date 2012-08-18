@@ -9,6 +9,8 @@ import static org.tessell.testing.TessellMatchers.shown;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.tessell.model.events.PropertyChangedEvent;
+import org.tessell.model.events.PropertyChangedHandler;
 import org.tessell.todomvc.client.model.AppState;
 import org.tessell.todomvc.client.model.Todo;
 import org.tessell.todomvc.client.views.ListTodoItemStyle;
@@ -98,9 +100,17 @@ public class ListTodoItemPresenterTest extends AbstractPresenterTest {
   }
   
   @Test
-  public void checkDoneAddsTodoToDoneList() {
+  public void checkDoneChangesAppStatesNumberLeft() {
+    // use an event handler to show the value is being pushed correctly
+    final int[] numberLeft = { state.numberLeft.get() };
+    state.numberLeft.addPropertyChangedHandler(new PropertyChangedHandler<Integer>() {
+      public void onPropertyChanged(PropertyChangedEvent<Integer> event) {
+        numberLeft[0] = event.getNewValue();
+      }
+    });
+    assertThat(numberLeft[0], is(1));
     v.checkBox().check();
-    assertThat(state.doneTodos.get().contains(todo), is(true));
+    assertThat(numberLeft[0], is(0));
   }
 
   @Test
