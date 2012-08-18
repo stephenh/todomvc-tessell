@@ -36,7 +36,6 @@ public class ListTodoItemPresenter extends BasicPresenter<IsListTodoItemView> {
     binder.when(editing).is(true).show(view.editPanel());
     binder.when(editing).is(true).hide(view.displayPanel());
     binder.when(editing).is(true).set(s.editing()).on(view.li());
-    view.content().setText(todo.name.get());
 
     binder.bind(todo.name).to(view.editBox());
     binder.bind(todo.name).to(textOf(view.content()));
