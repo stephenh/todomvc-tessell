@@ -63,8 +63,21 @@ public class ListTodoItemPresenterTest extends AbstractPresenterTest {
   @Test
   public void enterKeyInEditBoxSetsTheNewName() {
     v.content().doubleClick();
-    v.editBox().type("new name");
     v.editBox().keyDown(KeyCodes.KEY_ENTER);
+    assertThat(v.editPanel(), is(hidden()));
+    // being hidden fires change
+    v.editBox().setValue("new name", true);
+    assertThat(todo.name.get(), is("new name"));
+    assertThat(v.content().getText(), is("new name"));
+  }
+  
+  @Test
+  public void escapeKeyInEditBoxSetsTheNewName() {
+    v.content().doubleClick();
+    v.editBox().keyDown(KeyCodes.KEY_ESCAPE);
+    assertThat(v.editPanel(), is(hidden()));
+    // being hidden fires change
+    v.editBox().setValue("new name", true);
     assertThat(todo.name.get(), is("new name"));
     assertThat(v.content().getText(), is("new name"));
   }

@@ -1,5 +1,7 @@
 package org.tessell.todomvc.client.app;
 
+import static com.google.gwt.event.dom.client.KeyCodes.KEY_ENTER;
+import static com.google.gwt.event.dom.client.KeyCodes.KEY_ESCAPE;
 import static org.tessell.model.dsl.TakesValues.textOf;
 import static org.tessell.model.properties.NewProperty.booleanProperty;
 import static org.tessell.todomvc.client.views.AppViews.newListTodoItemView;
@@ -11,8 +13,6 @@ import org.tessell.todomvc.client.model.AppState;
 import org.tessell.todomvc.client.model.Todo;
 import org.tessell.todomvc.client.views.IsListTodoItemView;
 import org.tessell.todomvc.client.views.ListTodoItemStyle;
-
-import com.google.gwt.event.dom.client.KeyCodes;
 
 public class ListTodoItemPresenter extends BasicPresenter<IsListTodoItemView> {
 
@@ -47,7 +47,7 @@ public class ListTodoItemPresenter extends BasicPresenter<IsListTodoItemView> {
     binder.onDoubleClick(view.content()).set(editing).to(true);
     binder.onDoubleClick(view.content()).focus(view.editBox());
 
-    binder.onKeyDown(view.editBox(), KeyCodes.KEY_ENTER).set(editing).to(false);
+    binder.onKeyDown(view.editBox(), KEY_ENTER, KEY_ESCAPE).set(editing).to(false);
 
     binder.onClick(view.destroyAnchor()).remove(todo).from(state.allTodos);
   }
