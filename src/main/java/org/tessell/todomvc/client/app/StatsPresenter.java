@@ -1,9 +1,9 @@
 package org.tessell.todomvc.client.app;
 
+import static org.tessell.model.dsl.Binder.when;
 import static org.tessell.model.dsl.TakesValues.textOf;
 import static org.tessell.todomvc.client.views.AppViews.newStatsView;
 
-import org.tessell.model.dsl.Binder;
 import org.tessell.model.properties.StringProperty;
 import org.tessell.model.values.DerivedValue;
 import org.tessell.presenter.BasicPresenter;
@@ -16,7 +16,6 @@ import com.google.gwt.event.dom.client.ClickHandler;
 public class StatsPresenter extends BasicPresenter<IsStatsView> {
 
   private final AppState state;
-  private final Binder binder = new Binder();
 
   public StatsPresenter(final AppState state) {
     super(newStatsView());
@@ -26,11 +25,12 @@ public class StatsPresenter extends BasicPresenter<IsStatsView> {
   @Override
   public void onBind() {
     super.onBind();
-    binder.bind(state.numberLeft.asString()).to(textOf(view.numberLeft()));
-    binder.bind(leftText(state)).to(textOf(view.numberLeftWord()));
-    binder.bind(clearText(state)).to(textOf(view.clearCompletedAnchor()));
-    binder.when(state.doneTodos.size()).is(0).hide(view.clearCompletedAnchor());
-    binder.when(state.allTodos.size()).is(0).hide(view.stats());
+
+    bind(state.numberLeft.asString()).to(textOf(view.numberLeft()));
+    bind(leftText(state)).to(textOf(view.numberLeftWord()));
+    bind(clearText(state)).to(textOf(view.clearCompletedAnchor()));
+    when(state.doneTodos.size()).is(0).hide(view.clearCompletedAnchor());
+    when(state.allTodos.size()).is(0).hide(view.stats());
 
     view.clearCompletedAnchor().addClickHandler(new ClickHandler() {
       public void onClick(ClickEvent event) {

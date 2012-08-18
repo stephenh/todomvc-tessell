@@ -2,7 +2,6 @@ package org.tessell.todomvc.client.app;
 
 import static org.tessell.todomvc.client.views.AppViews.newListTodoView;
 
-import org.tessell.model.dsl.Binder;
 import org.tessell.model.dsl.ListPropertyBinder.ListPresenterFactory;
 import org.tessell.presenter.BasicPresenter;
 import org.tessell.presenter.Presenter;
@@ -13,7 +12,6 @@ import org.tessell.todomvc.client.views.IsListTodoView;
 public class ListTodoPresenter extends BasicPresenter<IsListTodoView> {
 
   private final AppState state;
-  private final Binder binder = new Binder();
 
   public ListTodoPresenter(AppState state) {
     super(newListTodoView());
@@ -23,7 +21,7 @@ public class ListTodoPresenter extends BasicPresenter<IsListTodoView> {
   @Override
   public void onBind() {
     super.onBind();
-    binder.bind(state.allTodos).to(this, view.ul(), new ListPresenterFactory<Todo>() {
+    bind(state.allTodos).to(this, view.ul(), new ListPresenterFactory<Todo>() {
       public Presenter create(Todo todo) {
         return new ListTodoItemPresenter(state, todo);
       }
