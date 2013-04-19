@@ -1,6 +1,5 @@
 package org.tessell.todomvc.client.app;
 
-import static org.tessell.model.dsl.Binder.when;
 import static org.tessell.model.dsl.TakesValues.textOf;
 import static org.tessell.todomvc.client.views.AppViews.newStatsView;
 
@@ -26,11 +25,11 @@ public class StatsPresenter extends BasicPresenter<IsStatsView> {
   public void onBind() {
     super.onBind();
 
-    bind(state.numberLeft.asString()).to(textOf(view.numberLeft()));
-    bind(leftText(state)).to(textOf(view.numberLeftWord()));
-    bind(clearText(state)).to(textOf(view.clearCompletedAnchor()));
-    when(state.doneTodos.size()).is(0).hide(view.clearCompletedAnchor());
-    when(state.allTodos.size()).is(0).hide(view.stats());
+    binder.bind(state.numberLeft.asString()).to(textOf(view.numberLeft()));
+    binder.bind(leftText(state)).to(textOf(view.numberLeftWord()));
+    binder.bind(clearText(state)).to(textOf(view.clearCompletedAnchor()));
+    binder.when(state.doneTodos.size()).is(0).hide(view.clearCompletedAnchor());
+    binder.when(state.allTodos.size()).is(0).hide(view.stats());
 
     view.clearCompletedAnchor().addClickHandler(new ClickHandler() {
       public void onClick(ClickEvent event) {

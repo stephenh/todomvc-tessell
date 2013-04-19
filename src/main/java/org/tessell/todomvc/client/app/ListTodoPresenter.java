@@ -21,7 +21,7 @@ public class ListTodoPresenter extends BasicPresenter<IsListTodoView> {
   @Override
   public void onBind() {
     super.onBind();
-    bind(state.allTodos).to(this, view.ul(), new ListPresenterFactory<Todo>() {
+    binder.bind(state.allTodos).to(this, view.ul(), new ListPresenterFactory<Todo>() {
       public Presenter create(Todo todo) {
         return new ListTodoItemPresenter(state, todo);
       }
