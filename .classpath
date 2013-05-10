@@ -4,6 +4,7 @@
 	<classpathentry kind="src" path="src/test/java"/>
 	<classpathentry kind="src" path="target/generated/java"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="con" path="org.apache.ivyde.eclipse.cpcontainer.IVYDE_CONTAINER/?project=todomvc&amp;ivyXmlPath=ivy.xml&amp;confs=*&amp;ivySettingsPath=ivysettings.xml&amp;loadSettingsOnDemand=false&amp;ivyUserDir=&amp;propertyFiles=&amp;acceptedTypes=jar%2Cbundle%2Cejb%2Cmaven-plugin&amp;alphaOrder=false&amp;resolveInWorkspace=true&amp;readOSGiMetadata=false&amp;retrievedClasspath=true&amp;retrievedClasspathPattern=target%2Flib%2F%5Bconf%5D%2F%5Bartifact%5D.%5Bext%5D&amp;retrievedClasspathSync=false&amp;retrievedClasspathTypes=jar"/>
+	<classpathentry kind="con" path="org.apache.ivyde.eclipse.cpcontainer.IVYDE_CONTAINER/?project=todomvc&amp;ivyXmlPath=ivy.xml&amp;confs=*&amp;ivySettingsPath=ivysettings.xml&amp;loadSettingsOnDemand=false&amp;ivyUserDir=&amp;propertyFiles=&amp;acceptedTypes=jar%2Cbundle%2Cejb%2Cmaven-plugin&amp;alphaOrder=true&amp;resolveInWorkspace=true&amp;readOSGiMetadata=false&amp;retrievedClasspath=true&amp;retrievedClasspathPattern=target%2Flib%2F%5Bconf%5D%2F%5Bartifact%5D.%5Bext%5D&amp;retrievedClasspathSync=false&amp;retrievedClasspathTypes=jar"/>
+	<classpathentry kind="con" path="com.google.gwt.eclipse.core.GWT_CONTAINER"/>
 	<classpathentry kind="output" path="src/main/webapp/WEB-INF/classes"/>
 </classpath>
