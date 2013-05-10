@@ -1,86 +1,12 @@
 <!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder" xmlns:gwt="urn:import:com.google.gwt.user.client.ui">
-  <ui:data field="destroy" src="../resources/destroy.png" />
-  <ui:data field="destroyHover" src="../resources/destroy-hover.png" />
-  <ui:style type="org.tessell.todomvc.client.views.ListTodoItemStyle">
-    .todo {
-      padding: 15px 20px 15px 0;
-      position: relative;
-      font-size: 24px;
-      line-height: 1.1em;
-      border-bottom: 1px solid #cccccc;
-      zoom: 1;
-      cursor: move;
-    }
-    
-    .todo.editing {
-      padding: 0;
-      border-bottom: 0;
-    }
-    
-    .todo:after {
-      content: "\0020";
-      display: block;
-      height: 0;
-      clear: both;
-      overflow: hidden;
-      visibility: hidden;
-    }
-    
-    .check input {
-      position: relative;
-      top: 6px;
-      margin: 0 10px 0 7px;
-      float: left;
-      cursor: pointer;
-    }
-    
-    .editBox {
-      width: 466px;
-      font-size: 24px;
-      margin: 0;
-      line-height: 1.4em;
-      outline: none;
-      padding: 6px;
-      border: 1px solid #999999;
-      -X-box-shadow: rgba(0, 0, 0, 0.2) 0 1px 2px 0 inset;
-    }
-    
-    /* When done add the line */
-    li.todo.done .todo-content {
-      text-decoration: line-through;
-      color: #777777;
-    }
-    
-    @url destroyUrl destroy;
-    a.todo-destroy {
-      position: absolute;
-      right: 5px;
-      top: 14px;
-      display: none;
-      cursor: pointer;
-      width: 20px;
-      height: 20px;
-      background: destroyUrl;
-    }
-
-    .todo:hover a.todo-destroy {
-      display: block;
-    }
-
-    @url destroyHoverUrl destroyHover;
-    a.todo-destroy:hover {
-      background: destroyHoverUrl;
-    }
-  </ui:style>
-  <gwt:HTMLPanel ui:field="li" tag="li" styleName="{style.todo}">
-    <div ui:field="displayPanel">
-      <gwt:CheckBox ui:field="checkBox" styleName="{style.check}" />
-      <gwt:Label ui:field="content" styleName="{style.todo-content}" />
-      <gwt:Anchor ui:field="destroyAnchor" styleName="{style.todo-destroy}" />
+  <ui:with field="bs" type="org.tessell.todomvc.client.resources.BaseStyle" />
+  <gwt:HTMLPanel ui:field="li" tag="li">
+    <div class="{bs.view}">
+      <gwt:SimpleCheckBox ui:field="checkBox" styleName="{bs.toggle}" />
+      <gwt:HTMLPanel tag="label" ui:field="label" />
+      <gwt:Button ui:field="destroy" styleName="{bs.destroy}" />
     </div>
-    <div ui:field="editPanel">
-      <gwt:TextBox ui:field="editBox" styleName="{style.editBox}" />
-    </div>
+    <gwt:TextBox ui:field="editBox" styleName="{bs.edit}" />
   </gwt:HTMLPanel>
 </ui:UiBinder>

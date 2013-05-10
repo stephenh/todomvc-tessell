@@ -21,10 +21,10 @@ public class AppPresenter extends BasicPresenter<IsAppView> {
   @Override
   public void onBind() {
     super.onBind();
-    view.createPanel().add(createTodo.getView());
-    view.listPanel().add(listTodos.getView());
-    view.statsPanel().add(statsTodo.getView());
-    view.creditsPanel().add(newCreditsView());
+    view.root().addAndReplaceElement(createTodo, view.headerPlaceholder());
+    view.root().addAndReplaceElement(listTodos, view.mainPlaceholder());
+    view.root().addAndReplaceElement(statsTodo, view.footerPlaceholder());
+    view.root().addAndReplaceElement(newCreditsView(), view.infoPlaceholder());
   }
 
 }

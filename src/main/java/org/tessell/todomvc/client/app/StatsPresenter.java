@@ -27,11 +27,11 @@ public class StatsPresenter extends BasicPresenter<IsStatsView> {
 
     binder.bind(state.numberLeft.asString()).to(textOf(view.numberLeft()));
     binder.bind(leftText(state)).to(textOf(view.numberLeftWord()));
-    binder.bind(clearText(state)).to(textOf(view.clearCompletedAnchor()));
-    binder.when(state.doneTodos.size()).is(0).hide(view.clearCompletedAnchor());
+    binder.bind(clearText(state)).to(textOf(view.clearCompleted()));
+    binder.when(state.doneTodos.size()).is(0).hide(view.clearCompleted());
     binder.when(state.allTodos.size()).is(0).hide(view.stats());
 
-    view.clearCompletedAnchor().addClickHandler(new ClickHandler() {
+    view.clearCompleted().addClickHandler(new ClickHandler() {
       public void onClick(ClickEvent event) {
         state.removeDone();
       }

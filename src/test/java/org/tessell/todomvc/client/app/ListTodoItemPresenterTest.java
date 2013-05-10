@@ -4,8 +4,6 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.not;
 import static org.junit.Assert.assertThat;
 import static org.tessell.testing.TessellMatchers.hasStyle;
-import static org.tessell.testing.TessellMatchers.hidden;
-import static org.tessell.testing.TessellMatchers.shown;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -13,7 +11,7 @@ import org.tessell.model.events.PropertyChangedEvent;
 import org.tessell.model.events.PropertyChangedHandler;
 import org.tessell.todomvc.client.model.AppState;
 import org.tessell.todomvc.client.model.Todo;
-import org.tessell.todomvc.client.views.ListTodoItemStyle;
+import org.tessell.todomvc.client.resources.BaseStyle;
 import org.tessell.todomvc.client.views.StubListTodoItemView;
 
 import com.google.gwt.event.dom.client.KeyCodes;
@@ -24,71 +22,40 @@ public class ListTodoItemPresenterTest extends AbstractPresenterTest {
   final Todo todo = new Todo("todo");
   final ListTodoItemPresenter p = bind(new ListTodoItemPresenter(state, todo));
   final StubListTodoItemView v = (StubListTodoItemView) p.getView();
-  final ListTodoItemStyle s = v.style();
+  final BaseStyle s = v.bs();
   
   @Before
   public void addTodoToState() {
     state.allTodos.add(todo);
   }
 
-  @Test
-  public void displayPanelIsInitiallyShown() {
-    assertThat(v.displayPanel(), is(shown()));
-  }
-
-  @Test
-  public void editPanelIsInitiallyHidden() {
-    assertThat(v.editPanel(), is(hidden()));
-  }
-
-  @Test
-  public void doubleClickOnContentShowsEditPanel() {
-    v.content().doubleClick();
-    assertThat(v.displayPanel(), is(hidden()));
-    assertThat(v.editPanel(), is(shown()));
-    assertThat(v.li(), hasStyle(s.editing()));
-  }
 
   @Test
   public void contentIsSetInitially() {
-    assertThat(v.content().getText(), is("todo"));
+    assertThat(v.label().getIsElement().getInnerText(), is("todo"));
   }
 
   @Test
   public void editBoxContentIsSetCorrectly() {
-    v.content().doubleClick();
     assertThat(v.editBox().getText(), is("todo"));
   }
 
   @Test
   public void enterKeyInEditBoxSetsTheNewName() {
-    v.content().doubleClick();
     v.editBox().keyDown(KeyCodes.KEY_ENTER);
-    assertThat(v.editPanel(), is(hidden()));
     // being hidden fires change
     v.editBox().setValue("new name", true);
     assertThat(todo.name.get(), is("new name"));
-    assertThat(v.content().getText(), is("new name"));
+    assertThat(v.label().getIsElement().getInnerText(), is("new name"));
   }
   
   @Test
   public void escapeKeyInEditBoxSetsTheNewName() {
-    v.content().doubleClick();
     v.editBox().keyDown(KeyCodes.KEY_ESCAPE);
-    assertThat(v.editPanel(), is(hidden()));
     // being hidden fires change
     v.editBox().setValue("new name", true);
     assertThat(todo.name.get(), is("new name"));
-    assertThat(v.content().getText(), is("new name"));
-  }
-
-  @Test
-  public void enterKeyInEditBoxCancelsEditing() {
-    v.content().doubleClick();
-    v.editBox().keyDown(KeyCodes.KEY_ENTER);
-    assertThat(v.displayPanel(), is(shown()));
-    assertThat(v.editPanel(), is(hidden()));
-    assertThat(v.li(), not(hasStyle(s.editing())));
+    assertThat(v.label().getIsElement().getInnerText(), is("new name"));
   }
 
   @Test
@@ -101,15 +68,15 @@ public class ListTodoItemPresenterTest extends AbstractPresenterTest {
   @Test
   public void checkDoneAddsStyle() {
     v.checkBox().check();
-    assertThat(v.li(), hasStyle(s.done()));
+    assertThat(v.li(), hasStyle(s.completed()));
   }
   
   @Test
   public void checkUndoneRemovesStyle() {
     v.checkBox().check();
-    assertThat(v.li(), hasStyle(s.done()));
+    assertThat(v.li(), hasStyle(s.completed()));
     v.checkBox().uncheck();
-    assertThat(v.li(), not(hasStyle(s.done())));
+    assertThat(v.li(), not(hasStyle(s.completed())));
   }
   
   @Test
@@ -129,7 +96,7 @@ public class ListTodoItemPresenterTest extends AbstractPresenterTest {
   @Test
   public void destroyRemovesTodoFromModel() {
     assertThat(state.allTodos.get().size(), is(1));
-    v.destroyAnchor().click();
+    v.destroy().click();
     assertThat(state.allTodos.get().size(), is(0));
   }
 

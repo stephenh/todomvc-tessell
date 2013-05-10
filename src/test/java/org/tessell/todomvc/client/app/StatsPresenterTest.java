@@ -63,7 +63,7 @@ public class StatsPresenterTest extends AbstractPresenterTest {
 
   @Test
   public void clearCompletedIsInitiallyHidden() {
-    assertThat(v.clearCompletedAnchor(), is(hidden()));
+    assertThat(v.clearCompleted(), is(hidden()));
   }
 
   @Test
@@ -71,7 +71,7 @@ public class StatsPresenterTest extends AbstractPresenterTest {
     Todo one = new Todo("one");
     state.allTodos.add(one);
     one.done.set(true);
-    assertThat(v.clearCompletedAnchor(), is(shown()));
+    assertThat(v.clearCompleted(), is(shown()));
   }
 
   @Test
@@ -79,10 +79,10 @@ public class StatsPresenterTest extends AbstractPresenterTest {
     Todo one = new Todo("one");
     state.allTodos.add(one);
     one.done.set(true);
-    assertThat(v.clearCompletedAnchor(), is(shown()));
+    assertThat(v.clearCompleted(), is(shown()));
 
     one.done.set(false);
-    assertThat(v.clearCompletedAnchor(), is(hidden()));
+    assertThat(v.clearCompleted(), is(hidden()));
   }
   
   @Test
@@ -93,7 +93,7 @@ public class StatsPresenterTest extends AbstractPresenterTest {
     state.allTodos.add(two);
     // two isn't done
     one.done.set(true);
-    v.clearCompletedAnchor().click();
+    v.clearCompleted().click();
 
     assertThat(state.allTodos.get().size(), is(1));
     assertThat(state.doneTodos.get().size(), is(0));

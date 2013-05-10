@@ -1,11 +1,9 @@
 <!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder" xmlns:gwt="urn:import:com.google.gwt.user.client.ui">
-  <ui:style>
-    .todo-list {
-      margin-top: 10px;
-    }
-  </ui:style>
-  <gwt:HTMLPanel styleName="{style.todo-list}">
-    <gwt:HTMLPanel ui:field="ul" tag="ul" />
+  <ui:with field="bs" type="org.tessell.todomvc.client.resources.BaseStyle" />
+  <gwt:HTMLPanel>
+    <gwt:SimpleCheckBox ui:field="toggleAll" styleName="{bs.toggleAll} "/>
+    <label class="{bs.toggleAll}">Mark all as complete</label><!-- need id set -->
+    <gwt:HTMLPanel ui:field="ul" tag="ul" styleName="{bs.todoList}" />
   </gwt:HTMLPanel>
 </ui:UiBinder>

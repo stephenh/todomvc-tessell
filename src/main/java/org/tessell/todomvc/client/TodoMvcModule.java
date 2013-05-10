@@ -17,10 +17,10 @@ public class TodoMvcModule implements EntryPoint {
     AppResources r = GWT.create(AppResources.class);
     AppResourcesUtil.injectAll(r);
 
-    AppViews.setProvider(new GwtViewsProvider(r.todo(), r.uitooltip()));
+    AppViews.setProvider(new GwtViewsProvider(r.base()));
     AppPresenter p = new AppPresenter();
     p.bind();
-    RootPanel.get().add(p.getView().asWidget());
+    RootPanel.get().add(p);
   }
 
 }

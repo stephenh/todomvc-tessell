@@ -1,37 +1,8 @@
 <!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder" xmlns:gwt="urn:import:com.google.gwt.user.client.ui">
-  <ui:with field="u" type="org.tessell.todomvc.client.resources.UitooltipStyle" />
-  <ui:style>
-    .create-todo {
-      position: relative;
-    }
-    
-    .create-todo input {
-      width: 466px;
-      font-size: 24px;
-      font-family: inherit;
-      line-height: 1.4em;
-      border: 0;
-      outline: none;
-      padding: 6px;
-      border: 1px solid #999999;
-      -X-box-shadow: rgba(0, 0, 0, 0.2) 0 1px 2px 0 inset;
-    }
-    
-    .create-todo span {
-      position: absolute;
-      z-index: 999;
-      width: 170px;
-      left: 50%;
-      margin-left: -85px;
-      opacity: 0;
-    }
-  </ui:style>
-  <gwt:HTMLPanel styleName="{style.create-todo}">
-    <!-- placeholder="What needs to be done?" -->
-    <gwt:TextBox ui:field="newTodo" />
-    <span class="{u.uiTooltipTop}" style="display:none;">
-      Press Enter to save this task
-    </span>
+  <ui:with field="bs" type="org.tessell.todomvc.client.resources.BaseStyle" />
+  <gwt:HTMLPanel>
+    <h1>todos</h1>
+    <gwt:TextBox ui:field="newTodo" styleName="{bs.newTodo}" />
   </gwt:HTMLPanel>
 </ui:UiBinder>
