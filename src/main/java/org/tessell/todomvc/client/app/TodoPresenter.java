@@ -4,7 +4,7 @@ import static com.google.gwt.event.dom.client.KeyCodes.KEY_ENTER;
 import static com.google.gwt.event.dom.client.KeyCodes.KEY_ESCAPE;
 import static org.tessell.model.dsl.TakesValues.innerTextOf;
 import static org.tessell.model.properties.NewProperty.booleanProperty;
-import static org.tessell.todomvc.client.views.AppViews.newListTodoItemView;
+import static org.tessell.todomvc.client.views.AppViews.newTodoView;
 
 import org.tessell.gwt.user.client.ui.IsWidget;
 import org.tessell.model.properties.BooleanProperty;
@@ -12,7 +12,7 @@ import org.tessell.presenter.BasicPresenter;
 import org.tessell.todomvc.client.model.AppState;
 import org.tessell.todomvc.client.model.Todo;
 import org.tessell.todomvc.client.resources.BaseStyle;
-import org.tessell.todomvc.client.views.IsListTodoItemView;
+import org.tessell.todomvc.client.views.IsTodoView;
 
 import com.google.gwt.event.dom.client.DoubleClickEvent;
 import com.google.gwt.event.dom.client.DoubleClickHandler;
@@ -20,15 +20,15 @@ import com.google.gwt.event.dom.client.HasDoubleClickHandlers;
 import com.google.gwt.event.shared.GwtEvent;
 import com.google.gwt.event.shared.HandlerRegistration;
 
-public class ListTodoItemPresenter extends BasicPresenter<IsListTodoItemView> {
+public class TodoPresenter extends BasicPresenter<IsTodoView> {
 
   private final BooleanProperty editing = booleanProperty("editing", false);
   private final BaseStyle bs = view.bs();
   private final AppState state;
   private final Todo todo;
 
-  public ListTodoItemPresenter(AppState state, Todo todo) {
-    super(newListTodoItemView());
+  public TodoPresenter(AppState state, Todo todo) {
+    super(newTodoView());
     this.state = state;
     this.todo = todo;
   }

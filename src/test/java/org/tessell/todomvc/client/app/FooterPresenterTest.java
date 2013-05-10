@@ -8,13 +8,13 @@ import static org.tessell.testing.TessellMatchers.shown;
 import org.junit.Test;
 import org.tessell.todomvc.client.model.AppState;
 import org.tessell.todomvc.client.model.Todo;
-import org.tessell.todomvc.client.views.StubStatsView;
+import org.tessell.todomvc.client.views.StubFooterView;
 
-public class StatsPresenterTest extends AbstractPresenterTest {
+public class FooterPresenterTest extends AbstractPresenterTest {
 
   final AppState state = new AppState();
-  final StatsPresenter p = bind(new StatsPresenter(state));
-  final StubStatsView v = (StubStatsView) p.getView();
+  final FooterPresenter p = bind(new FooterPresenter(state));
+  final StubFooterView v = (StubFooterView) p.getView();
 
   @Test
   public void numberLeftDefaultsToZero() {

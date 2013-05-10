@@ -12,16 +12,16 @@ import org.tessell.model.events.PropertyChangedHandler;
 import org.tessell.todomvc.client.model.AppState;
 import org.tessell.todomvc.client.model.Todo;
 import org.tessell.todomvc.client.resources.BaseStyle;
-import org.tessell.todomvc.client.views.StubListTodoItemView;
+import org.tessell.todomvc.client.views.StubTodoView;
 
 import com.google.gwt.event.dom.client.KeyCodes;
 
-public class ListTodoItemPresenterTest extends AbstractPresenterTest {
+public class TodoPresenterTest extends AbstractPresenterTest {
 
   final AppState state = new AppState();
   final Todo todo = new Todo("todo");
-  final ListTodoItemPresenter p = bind(new ListTodoItemPresenter(state, todo));
-  final StubListTodoItemView v = (StubListTodoItemView) p.getView();
+  final TodoPresenter p = bind(new TodoPresenter(state, todo));
+  final StubTodoView v = (StubTodoView) p.getView();
   final BaseStyle s = v.bs();
   
   @Before

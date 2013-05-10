@@ -1,23 +1,23 @@
 package org.tessell.todomvc.client.app;
 
 import static org.tessell.model.dsl.TakesValues.textOf;
-import static org.tessell.todomvc.client.views.AppViews.newStatsView;
+import static org.tessell.todomvc.client.views.AppViews.newFooterView;
 
 import org.tessell.model.properties.StringProperty;
 import org.tessell.model.values.DerivedValue;
 import org.tessell.presenter.BasicPresenter;
 import org.tessell.todomvc.client.model.AppState;
-import org.tessell.todomvc.client.views.IsStatsView;
+import org.tessell.todomvc.client.views.IsFooterView;
 
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 
-public class StatsPresenter extends BasicPresenter<IsStatsView> {
+public class FooterPresenter extends BasicPresenter<IsFooterView> {
 
   private final AppState state;
 
-  public StatsPresenter(final AppState state) {
-    super(newStatsView());
+  public FooterPresenter(final AppState state) {
+    super(newFooterView());
     this.state = state;
   }
 

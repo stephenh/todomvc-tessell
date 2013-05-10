@@ -1,23 +1,23 @@
 package org.tessell.todomvc.client.app;
 
-import static org.tessell.todomvc.client.views.AppViews.newCreateTodoView;
+import static org.tessell.todomvc.client.views.AppViews.newHeaderView;
 
 import org.tessell.model.properties.ListProperty;
 import org.tessell.presenter.BasicPresenter;
 import org.tessell.todomvc.client.model.Todo;
-import org.tessell.todomvc.client.views.IsCreateTodoView;
+import org.tessell.todomvc.client.views.IsHeaderView;
 
 import com.google.gwt.event.dom.client.KeyCodes;
 import com.google.gwt.event.dom.client.KeyDownEvent;
 import com.google.gwt.event.dom.client.KeyDownHandler;
 
 /** Creates new tasks when the user adds them. */
-public class CreateTodoPresenter extends BasicPresenter<IsCreateTodoView> {
+public class HeaderPresenter extends BasicPresenter<IsHeaderView> {
 
   private final ListProperty<Todo> allTodos;
 
-  public CreateTodoPresenter(ListProperty<Todo> allTodos) {
-    super(newCreateTodoView());
+  public HeaderPresenter(ListProperty<Todo> allTodos) {
+    super(newHeaderView());
     this.allTodos = allTodos;
   }
 

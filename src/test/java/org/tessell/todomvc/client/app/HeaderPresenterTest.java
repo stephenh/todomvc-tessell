@@ -7,15 +7,15 @@ import static org.tessell.model.properties.NewProperty.listProperty;
 import org.junit.Test;
 import org.tessell.model.properties.ListProperty;
 import org.tessell.todomvc.client.model.Todo;
-import org.tessell.todomvc.client.views.StubCreateTodoView;
+import org.tessell.todomvc.client.views.StubHeaderView;
 
 import com.google.gwt.event.dom.client.KeyCodes;
 
-public class CreateTodoPresenterTest extends AbstractPresenterTest {
+public class HeaderPresenterTest extends AbstractPresenterTest {
 
   final ListProperty<Todo> todos = listProperty("todos");
-  final CreateTodoPresenter p = bind(new CreateTodoPresenter(todos));
-  final StubCreateTodoView v = (StubCreateTodoView) p.getView();
+  final HeaderPresenter p = bind(new HeaderPresenter(todos));
+  final StubHeaderView v = (StubHeaderView) p.getView();
 
   @Test
   public void enterOnEmptyContentDoesNothing() {

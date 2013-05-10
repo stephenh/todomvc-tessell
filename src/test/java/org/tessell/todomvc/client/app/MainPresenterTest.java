@@ -6,13 +6,13 @@ import static org.junit.Assert.assertThat;
 import org.junit.Test;
 import org.tessell.todomvc.client.model.AppState;
 import org.tessell.todomvc.client.model.Todo;
-import org.tessell.todomvc.client.views.StubListTodoView;
+import org.tessell.todomvc.client.views.StubMainView;
 
-public class ListTodoPresenterTest extends AbstractPresenterTest {
+public class MainPresenterTest extends AbstractPresenterTest {
 
   final AppState state = new AppState();
-  final ListTodoPresenter p = bind(new ListTodoPresenter(state));
-  final StubListTodoView v = (StubListTodoView) p.getView();
+  final MainPresenter p = bind(new MainPresenter(state));
+  final StubMainView v = (StubMainView) p.getView();
   
   @Test
   public void initiallyNoLines() {
