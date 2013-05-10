@@ -22,7 +22,7 @@ public class HeaderPresenterTest extends AbstractPresenterTest {
     v.newTodo().keyDown(KeyCodes.KEY_ENTER);
     assertThat(todos.get().size(), is(0));
   }
-  
+
   @Test
   public void enterOnSomeContentCreatesTask() {
     v.newTodo().type("new task");
@@ -36,6 +36,13 @@ public class HeaderPresenterTest extends AbstractPresenterTest {
     v.newTodo().type("new task");
     v.newTodo().keyDown(KeyCodes.KEY_ENTER);
     assertThat(v.newTodo().getText(), is(""));
+  }
+
+  @Test
+  public void enterTrimsTheInput() {
+    v.newTodo().type("  new   task  ");
+    v.newTodo().keyDown(KeyCodes.KEY_ENTER);
+    assertThat(todos.get().get(0).name.get(), is("new   task"));
   }
 
 }

@@ -27,7 +27,7 @@ public class HeaderPresenter extends BasicPresenter<IsHeaderView> {
     view.newTodo().addKeyDownHandler(new KeyDownHandler() {
       public void onKeyDown(KeyDownEvent event) {
         if (event.getNativeKeyCode() == KeyCodes.KEY_ENTER) {
-          String newName = view.newTodo().getText();
+          String newName = view.newTodo().getText().trim();
           if ("".equals(newName)) {
             return;
           }
