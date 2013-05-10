@@ -36,7 +36,7 @@ body {
 	font-smoothing: antialiased;
 }
 
-#todoapp {
+.todoapp {
 	background: #fff;
 	background: rgba(255, 255, 255, 0.9);
 	margin: 130px 0 40px 0;
@@ -48,7 +48,7 @@ body {
 				0 25px 50px 0 rgba(0, 0, 0, 0.15);
 }
 
-#todoapp:before {
+.todoapp:before {
 	content: '';
 	border-left: 1px solid #f5d6d6;
 	border-right: 1px solid #f5d6d6;
@@ -59,16 +59,16 @@ body {
 	height: 100%;
 }
 
-#todoapp input::-webkit-input-placeholder {
+.todoapp input::-webkit-input-placeholder {
 	font-style: italic;
 }
 
-#todoapp input:-moz-placeholder {
+.todoapp input:-moz-placeholder {
 	font-style: italic;
 	color: #a9a9a9;
 }
 
-#todoapp h1 {
+.todoapp h1 {
 	position: absolute;
 	top: -120px;
 	width: 100%;
@@ -85,12 +85,12 @@ body {
 	text-rendering: optimizeLegibility;
 }
 
-#header {
+.header {
 	padding-top: 15px;
 	border-radius: inherit;
 }
 
-#header:before {
+.header:before {
 	content: '';
 	position: absolute;
 	top: 0;
@@ -145,7 +145,7 @@ body {
 	box-shadow: none;
 }
 
-#main {
+.main {
 	position: relative;
 	z-index: 2;
 	border-top: 1px dotted #adadad;
@@ -301,7 +301,7 @@ label.toggle-all {
 	margin-bottom: -1px;
 }
 
-#footer {
+.footer {
 	color: #777;
 	padding: 0 15px;
 	position: absolute;
@@ -313,7 +313,7 @@ label.toggle-all {
 	text-align: center;
 }
 
-#footer:before {
+.footer:before {
 	content: '';
 	position: absolute;
 	right: 0;
@@ -373,7 +373,7 @@ label.toggle-all {
 	box-shadow: 0 -1px 0 0 rgba(0, 0, 0, 0.3);
 }
 
-#info {
+.info {
 	margin: 65px auto 0;
 	color: #a6a6a6;
 	font-size: 12px;
@@ -381,7 +381,7 @@ label.toggle-all {
 	text-align: center;
 }
 
-#info a {
+.info a {
 	color: inherit;
 }
 

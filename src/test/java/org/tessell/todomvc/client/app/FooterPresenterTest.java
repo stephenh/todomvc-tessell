@@ -99,14 +99,4 @@ public class FooterPresenterTest extends AbstractPresenterTest {
     assertThat(state.doneTodos.get().size(), is(0));
   }
 
-  @Test
-  public void initiallyHidden() {
-    assertThat(v.stats(), is(hidden()));
-  }
-
-  @Test
-  public void shownAfterTodoAdded() {
-    state.allTodos.add(new Todo("one"));
-    assertThat(v.stats(), is(shown()));
-  }
 }

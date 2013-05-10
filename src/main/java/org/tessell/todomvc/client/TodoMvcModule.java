@@ -1,6 +1,7 @@
 package org.tessell.todomvc.client;
 
 import org.tessell.todomvc.client.app.AppPresenter;
+import org.tessell.todomvc.client.model.AppState;
 import org.tessell.todomvc.client.resources.AppResources;
 import org.tessell.todomvc.client.resources.AppResourcesUtil;
 import org.tessell.todomvc.client.views.AppViews;
@@ -18,7 +19,8 @@ public class TodoMvcModule implements EntryPoint {
     AppResourcesUtil.injectAll(r);
 
     AppViews.setProvider(new GwtViewsProvider(r.base()));
-    AppPresenter p = new AppPresenter();
+    AppState state = new AppState();
+    AppPresenter p = new AppPresenter(state);
     p.bind();
     RootPanel.get().add(p);
   }

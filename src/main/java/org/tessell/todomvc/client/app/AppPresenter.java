@@ -9,22 +9,35 @@ import org.tessell.todomvc.client.views.IsAppView;
 
 public class AppPresenter extends BasicPresenter<IsAppView> {
 
-  private final AppState state = new AppState();
-  private final HeaderPresenter createTodo = addPresenter(new HeaderPresenter(state.allTodos));
-  private final FooterPresenter statsTodo = addPresenter(new FooterPresenter(state));
-  private final MainPresenter listTodos = addPresenter(new MainPresenter(state));
+  private final AppState state;
 
-  public AppPresenter() {
+  public AppPresenter(AppState state) {
     super(newAppView());
+    this.state = state;
   }
 
   @Override
   public void onBind() {
     super.onBind();
-    view.root().addAndReplaceElement(createTodo, view.headerPlaceholder());
-    view.root().addAndReplaceElement(listTodos, view.mainPlaceholder());
-    view.root().addAndReplaceElement(statsTodo, view.footerPlaceholder());
-    view.root().addAndReplaceElement(newInfoView(), view.infoPlaceholder());
+
+    view.root().addAndReplaceElement(//
+      addPresenter(new HeaderPresenter(state.allTodos)).getView(),
+      view.headerPlaceholder());
+
+    view.root().addAndReplaceElement(//
+      addPresenter(new MainPresenter(state)).getView(),
+      view.mainPlaceholder());
+
+    view.root().addAndReplaceElement(//
+      addPresenter(new FooterPresenter(state)).getView(),
+      view.footerPlaceholder());
+
+    view.root().addAndReplaceElement(//
+      newInfoView(),
+      view.infoPlaceholder());
+
+    binder.when(state.allTodos.size()).is(0).hide(view.main());
+    binder.when(state.allTodos.size()).is(0).hide(view.footer());
   }
 
 }

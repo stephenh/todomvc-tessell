@@ -1,18 +1,19 @@
 <!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder" xmlns:gwt="urn:import:com.google.gwt.user.client.ui">
+  <ui:with field="bs" type="org.tessell.todomvc.client.resources.BaseStyle" />
   <gwt:HTMLPanel ui:field="root">
-    <section id="todoapp">
-      <header id="header">
+    <section class="{bs.todoapp}">
+      <header class="{bs.header}">
         <div ui:field="headerPlaceholder" />
       </header>
-      <section id="main">
+      <section ui:field="main" class="{bs.main}">
         <div ui:field="mainPlaceholder" />
       </section>
-      <section id="footer">
+      <section ui:field="footer" class="{bs.footer}">
         <div ui:field="footerPlaceholder" />
       </section>
     </section>
-    <section id="info">
+    <section class="{bs.info}">
       <div ui:field="infoPlaceholder" />
     </section>
   </gwt:HTMLPanel>

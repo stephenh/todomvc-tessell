@@ -29,7 +29,6 @@ public class FooterPresenter extends BasicPresenter<IsFooterView> {
     binder.bind(leftText(state)).to(textOf(view.numberLeftWord()));
     binder.bind(clearText(state)).to(textOf(view.clearCompleted()));
     binder.when(state.doneTodos.size()).is(0).hide(view.clearCompleted());
-    binder.when(state.allTodos.size()).is(0).hide(view.stats());
 
     view.clearCompleted().addClickHandler(new ClickHandler() {
       public void onClick(ClickEvent event) {
