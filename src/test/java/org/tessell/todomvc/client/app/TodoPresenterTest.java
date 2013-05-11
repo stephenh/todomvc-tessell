@@ -5,7 +5,6 @@ import static org.hamcrest.CoreMatchers.not;
 import static org.junit.Assert.assertThat;
 import static org.tessell.testing.TessellMatchers.hasStyle;
 
-import org.junit.Before;
 import org.junit.Test;
 import org.tessell.model.events.PropertyChangedEvent;
 import org.tessell.model.events.PropertyChangedHandler;
@@ -23,12 +22,6 @@ public class TodoPresenterTest extends AbstractPresenterTest {
   final TodoPresenter p = bind(new TodoPresenter(state, todo));
   final StubTodoView v = (StubTodoView) p.getView();
   final BaseStyle s = v.bs();
-  
-  @Before
-  public void addTodoToState() {
-    state.allTodos.add(todo);
-  }
-
 
   @Test
   public void contentIsSetInitially() {
@@ -48,7 +41,7 @@ public class TodoPresenterTest extends AbstractPresenterTest {
     assertThat(todo.name.get(), is("new name"));
     assertThat(v.label().getIsElement().getInnerText(), is("new name"));
   }
-  
+
   @Test
   public void escapeKeyInEditBoxSetsTheNewName() {
     v.editBox().keyDown(KeyCodes.KEY_ESCAPE);
@@ -70,7 +63,7 @@ public class TodoPresenterTest extends AbstractPresenterTest {
     v.checkBox().check();
     assertThat(v.li(), hasStyle(s.completed()));
   }
-  
+
   @Test
   public void checkUndoneRemovesStyle() {
     v.checkBox().check();
@@ -78,7 +71,7 @@ public class TodoPresenterTest extends AbstractPresenterTest {
     v.checkBox().uncheck();
     assertThat(v.li(), not(hasStyle(s.completed())));
   }
-  
+
   @Test
   public void checkDoneChangesAppStatesNumberLeft() {
     // use an event handler to show the value is being pushed correctly
@@ -97,6 +90,13 @@ public class TodoPresenterTest extends AbstractPresenterTest {
   public void destroyRemovesTodoFromModel() {
     assertThat(state.allTodos.get().size(), is(1));
     v.destroy().click();
+    assertThat(state.allTodos.get().size(), is(0));
+  }
+
+  @Test
+  public void changingTextToEmptyStringRemovesTheTodo() {
+    assertThat(state.allTodos.get().size(), is(1));
+    v.editBox().type("");
     assertThat(state.allTodos.get().size(), is(0));
   }
 

@@ -3,6 +3,7 @@ package org.tessell.todomvc.client.app;
 import static com.google.gwt.event.dom.client.KeyCodes.KEY_ENTER;
 import static com.google.gwt.event.dom.client.KeyCodes.KEY_ESCAPE;
 import static org.tessell.model.dsl.TakesValues.innerTextOf;
+import static org.tessell.model.dsl.WhenConditions.nullValue;
 import static org.tessell.model.properties.NewProperty.booleanProperty;
 import static org.tessell.todomvc.client.views.AppViews.newTodoView;
 
@@ -41,6 +42,7 @@ public class TodoPresenter extends BasicPresenter<IsTodoView> {
 
     binder.bind(todo.name).to(view.editBox());
     binder.bind(todo.name).to(innerTextOf(view.label()));
+    binder.when(todo.name).is(nullValue()).remove(todo).from(state.allTodos);
 
     binder.bind(todo.done).to(view.checkBox());
     binder.when(todo.done).is(true).set(bs.completed()).on(view.li());
