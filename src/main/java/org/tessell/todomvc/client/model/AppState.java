@@ -3,8 +3,6 @@ package org.tessell.todomvc.client.model;
 import static org.tessell.model.properties.NewProperty.integerProperty;
 import static org.tessell.model.properties.NewProperty.listProperty;
 
-import java.util.ArrayList;
-
 import org.tessell.model.properties.IntegerProperty;
 import org.tessell.model.properties.ListProperty;
 import org.tessell.model.properties.ListProperty.ElementFilter;
@@ -27,10 +25,6 @@ public class AppState {
   });
 
   public void removeDone() {
-    for (Todo todo : new ArrayList<Todo>(allTodos.get())) {
-      if (todo.done.isTrue()) {
-        allTodos.remove(todo);
-      }
-    }
+    allTodos.removeAll(doneTodos.get());
   }
 }
