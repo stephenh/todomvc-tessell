@@ -3,7 +3,6 @@ package org.tessell.todomvc.client;
 import org.tessell.todomvc.client.app.AppPresenter;
 import org.tessell.todomvc.client.model.AppState;
 import org.tessell.todomvc.client.resources.AppResources;
-import org.tessell.todomvc.client.resources.AppResourcesUtil;
 import org.tessell.todomvc.client.views.AppViews;
 import org.tessell.todomvc.client.views.GwtViewsProvider;
 
@@ -16,7 +15,7 @@ public class TodoMvcModule implements EntryPoint {
   @Override
   public void onModuleLoad() {
     AppResources r = GWT.create(AppResources.class);
-    AppResourcesUtil.injectAll(r);
+    r.base().ensureInjected();
 
     AppViews.setProvider(new GwtViewsProvider(r.base()));
     AppState state = new AppState();
