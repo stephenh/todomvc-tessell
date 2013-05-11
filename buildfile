@@ -19,7 +19,7 @@ define 'todomvc' do
   generated_java = file(_('target/generated/java') => (views + resources)) do |dir|
     mkdir_p dir.to_s
     touch dir.to_s
-    task('gwt-mpv:generate').invoke
+    task('tessell:generate').invoke
   end
 
   compile.from generated_java
@@ -31,10 +31,10 @@ define 'todomvc' do
     :classpath => []
   })]
 
-  task 'gwt-mpv:generate' => :compiledeps do
-    puts "Generating gwt-mpv output..."
-    Buildr.ant('gwt-mpv:generate') do |ant|
-      pathid = "#{project.name}-gwt-mpv-classpath"
+  task 'tessell:generate' => :compiledeps do
+    puts "Generating tessell output..."
+    Buildr.ant('tessell:generate') do |ant|
+      pathid = "#{project.name}-tessell-classpath"
       ant.path :id => pathid do
         project.compile.dependencies.each do |path|
           ant.pathelement :location => path

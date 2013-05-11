@@ -1,7 +1,7 @@
 
-A port of the [todomvc](https://github.com/addyosmani/todomvc) JS sample application to [gwt-mpv](http://www.gwtmpv.org).
+A port of the [todomvc](https://github.com/addyosmani/todomvc) JS sample application to [Tessell](http://www.tessell.org).
 
-See [todomvc in gwt-mpv](http://www.draconianoverlord.com/2011/12/10/todomvc-in-gwt-mpv.html) for a more detailed write up.
+See [todomvc in Tessell](http://www.draconianoverlord.com/2011/12/10/todomvc-in-gwt-mpv.html) for a more detailed write up.
 
 Building
 ========
@@ -12,10 +12,10 @@ Eclipse
 -------
 
 1. Install [IvyDE](http://ant.apache.org/ivy/ivyde/).
-  * IvyDE is not strictly required for using gwt-mpv, but the sample app uses it for downloading and managing jar dependencies (similar to Maven/m2eclipse).
+  * IvyDE is not strictly required for using Tessell, but the sample app uses it for downloading and managing jar dependencies (similar to Maven/m2eclipse).
   * If you really don't want to install IvyDE, you can run either Buildr or Ant to download the jars and manage the `.classpath` file by hand.
 2. Install [Google Plugin for Eclipse](http://code.google.com/eclipse/).
-  * GPE is also not strictly required for using gwt-mpv, but provides some nice GWT-specific features in Eclipse.
+  * GPE is also not strictly required for using Tessell, but provides some nice GWT-specific features in Eclipse.
 3. Import the project into Eclipse
   * There is a custom builder configured that should generate the necessary `IsXxx` files automatically
   * The custom builder should rerun automatically on save any time you change a `ui.xml` file
