@@ -1,5 +1,5 @@
 
-require 'gwt.rb'
+require './gwt.rb'
 require 'buildr/ivy_extension'
 
 THIS_VERSION = ENV['version'] || 'SNAPSHOT'
