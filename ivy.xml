@@ -2,8 +2,8 @@
   <info organisation="org.tessell" module="todomvc" revision="${version}" />
   <configurations>
     <conf name="default" extends="compile"/>
-    <conf name="compile" visibility="private"/>
-    <conf name="test" visibility="private"/>
+    <conf name="compile" extends="provided" visibility="private"/>
+    <conf name="test" extends="default" visibility="private"/>
     <conf name="provided" visibility="private"/>
     <conf name="sources"/>
   </configurations>

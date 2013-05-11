@@ -12,7 +12,7 @@ define 'todomvc' do
   project.resources.from(_('src/main/java')).exclude('*.java')
   package(:war)
 
-  ivy.compile_conf(['compile', 'provided']).test_conf('test').package_conf('compile')
+  ivy.compile_conf('compile').test_conf('test').package_conf('compile')
 
   resources = FileList[_('src/main/java/org/tessell/todomvc/client/resources/**/*')]
   views     = FileList[_('src/main/java/org/tessell/todomvc/client/views/**/*')]
