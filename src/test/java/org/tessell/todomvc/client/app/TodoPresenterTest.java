@@ -6,6 +6,8 @@ import static org.junit.Assert.assertThat;
 import static org.tessell.testing.TessellMatchers.hasStyle;
 
 import org.junit.Test;
+import org.tessell.gwt.dom.client.StubDoubleClickEvent;
+import org.tessell.gwt.user.client.ui.IsWidget;
 import org.tessell.model.events.PropertyChangedEvent;
 import org.tessell.model.events.PropertyChangedHandler;
 import org.tessell.todomvc.client.model.AppState;
@@ -30,25 +32,36 @@ public class TodoPresenterTest extends AbstractPresenterTest {
 
   @Test
   public void editBoxContentIsSetCorrectly() {
+    doubleClick(v.label());
     assertThat(v.editBox().getText(), is("todo"));
   }
 
   @Test
   public void enterKeyInEditBoxSetsTheNewName() {
+    doubleClick(v.label());
+    v.editBox().press("2");
     v.editBox().keyDown(KeyCodes.KEY_ENTER);
-    // being hidden fires change
-    v.editBox().setValue("new name", true);
-    assertThat(todo.name.get(), is("new name"));
-    assertThat(v.label().getIsElement().getInnerText(), is("new name"));
+    assertThat(todo.name.get(), is("todo2"));
+    assertThat(v.label().getIsElement().getInnerText(), is("todo2"));
   }
 
   @Test
-  public void escapeKeyInEditBoxSetsTheNewName() {
+  public void escapeKeyInEditBoxLeavesTheOldName() {
+    doubleClick(v.label());
+    v.editBox().press("2");
     v.editBox().keyDown(KeyCodes.KEY_ESCAPE);
-    // being hidden fires change
-    v.editBox().setValue("new name", true);
-    assertThat(todo.name.get(), is("new name"));
-    assertThat(v.label().getIsElement().getInnerText(), is("new name"));
+    assertThat(todo.name.get(), is("todo"));
+    // later the box will blur, forget it
+    v.editBox().blur();
+    assertThat(todo.name.get(), is("todo"));
+  }
+
+  @Test
+  public void blurInEditBoxSetsTheNewName() {
+    doubleClick(v.label());
+    v.editBox().press("2");
+    v.editBox().blur();
+    assertThat(todo.name.get(), is("todo2"));
   }
 
   @Test
@@ -96,8 +109,14 @@ public class TodoPresenterTest extends AbstractPresenterTest {
   @Test
   public void changingTextToEmptyStringRemovesTheTodo() {
     assertThat(state.allTodos.get().size(), is(1));
+    doubleClick(v.label());
     v.editBox().type("");
+    v.editBox().blur();
     assertThat(state.allTodos.get().size(), is(0));
+  }
+
+  private void doubleClick(IsWidget w) {
+    w.fireEvent(new StubDoubleClickEvent());
   }
 
 }

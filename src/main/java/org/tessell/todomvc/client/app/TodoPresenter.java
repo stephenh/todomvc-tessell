@@ -6,6 +6,7 @@ import static org.tessell.model.dsl.TakesValues.innerTextOf;
 import static org.tessell.model.dsl.WhenConditions.nullValue;
 import static org.tessell.model.properties.NewProperty.booleanProperty;
 import static org.tessell.todomvc.client.views.AppViews.newTodoView;
+import static org.tessell.util.StringUtils.sanitizeIfString;
 
 import org.tessell.gwt.user.client.ui.IsWidget;
 import org.tessell.model.properties.BooleanProperty;
@@ -40,7 +41,6 @@ public class TodoPresenter extends BasicPresenter<IsTodoView> {
 
     binder.when(editing).is(true).set(bs.editing()).on(view.li());
 
-    binder.bind(todo.name).to(view.editBox());
     binder.bind(todo.name).to(innerTextOf(view.label()));
     binder.when(todo.name).is(nullValue()).remove(todo).from(state.allTodos);
 
@@ -50,11 +50,26 @@ public class TodoPresenter extends BasicPresenter<IsTodoView> {
     binder.onDoubleClick(wrap(view.label())).set(editing).to(true);
     binder.onDoubleClick(wrap(view.label())).focus(view.editBox());
 
-    binder.onKeyDown(view.editBox(), KEY_ENTER, KEY_ESCAPE).set(editing).to(false);
+    // reset the editBox to todo.name each time we start editing
+    binder.when(editing).is(true).set(view.editBox()).to(todo.name);
+
+    binder.onKeyDown(view.editBox(), KEY_ESCAPE).set(editing).to(false);
+    binder.onKeyDown(view.editBox(), KEY_ENTER).execute(saveNewValue);
+    binder.onBlur(view.editBox()).execute(saveNewValue);
 
     binder.onClick(view.destroy()).remove(todo).from(state.allTodos);
   }
-  
+
+  private final Runnable saveNewValue = new Runnable() {
+    public void run() {
+      // check for editing in case the user already hit escape
+      if (editing.isTrue()) {
+        todo.name.set(sanitizeIfString(view.editBox().getValue()));
+        editing.set(false);
+      }
+    }
+  };
+
   // Hack to enable double-clicking on a widget that doesn't implement HasDoubleClickHandlers
   private static HasDoubleClickHandlers wrap(final IsWidget w) {
     return new HasDoubleClickHandlers() {
@@ -62,7 +77,6 @@ public class TodoPresenter extends BasicPresenter<IsTodoView> {
         w.fireEvent(event);
       }
 
-      @Override
       public HandlerRegistration addDoubleClickHandler(DoubleClickHandler handler) {
         return w.addDomHandler(handler, DoubleClickEvent.getType());
       }
