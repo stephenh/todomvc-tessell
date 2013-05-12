@@ -8,19 +8,12 @@ import static org.tessell.model.properties.NewProperty.booleanProperty;
 import static org.tessell.todomvc.client.views.AppViews.newTodoView;
 import static org.tessell.util.StringUtils.sanitizeIfString;
 
-import org.tessell.gwt.user.client.ui.IsWidget;
 import org.tessell.model.properties.BooleanProperty;
 import org.tessell.presenter.BasicPresenter;
 import org.tessell.todomvc.client.model.AppState;
 import org.tessell.todomvc.client.model.Todo;
 import org.tessell.todomvc.client.resources.BaseStyle;
 import org.tessell.todomvc.client.views.IsTodoView;
-
-import com.google.gwt.event.dom.client.DoubleClickEvent;
-import com.google.gwt.event.dom.client.DoubleClickHandler;
-import com.google.gwt.event.dom.client.HasDoubleClickHandlers;
-import com.google.gwt.event.shared.GwtEvent;
-import com.google.gwt.event.shared.HandlerRegistration;
 
 public class TodoPresenter extends BasicPresenter<IsTodoView> {
 

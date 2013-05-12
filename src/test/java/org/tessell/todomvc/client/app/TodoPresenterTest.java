@@ -6,9 +6,6 @@ import static org.junit.Assert.assertThat;
 import static org.tessell.testing.TessellMatchers.hasStyle;
 
 import org.junit.Test;
-import org.tessell.gwt.dom.client.StubDoubleClickEvent;
-import org.tessell.gwt.user.client.ui.IsWidget;
-import org.tessell.gwt.user.client.ui.StubLabel;
 import org.tessell.model.events.PropertyChangedEvent;
 import org.tessell.model.events.PropertyChangedHandler;
 import org.tessell.todomvc.client.model.AppState;
