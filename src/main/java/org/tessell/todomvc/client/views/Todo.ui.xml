@@ -4,7 +4,7 @@
   <gwt:HTMLPanel ui:field="li" tag="li">
     <div class="{bs.view}">
       <gwt:SimpleCheckBox ui:field="checkBox" styleName="{bs.toggle}" />
-      <gwt:HTMLPanel tag="label" ui:field="label" />
+      <gwt:Label ui:field="label" styleName="{bs.label}" />
       <gwt:Button ui:field="destroy" styleName="{bs.destroy}" />
     </div>
     <gwt:TextBox ui:field="editBox" styleName="{bs.edit}" />

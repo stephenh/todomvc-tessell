@@ -8,6 +8,7 @@ import static org.tessell.testing.TessellMatchers.hasStyle;
 import org.junit.Test;
 import org.tessell.gwt.dom.client.StubDoubleClickEvent;
 import org.tessell.gwt.user.client.ui.IsWidget;
+import org.tessell.gwt.user.client.ui.StubLabel;
 import org.tessell.model.events.PropertyChangedEvent;
 import org.tessell.model.events.PropertyChangedHandler;
 import org.tessell.todomvc.client.model.AppState;
@@ -32,13 +33,13 @@ public class TodoPresenterTest extends AbstractPresenterTest {
 
   @Test
   public void editBoxContentIsSetCorrectly() {
-    doubleClick(v.label());
+    v.label().doubleClick();
     assertThat(v.editBox().getText(), is("todo"));
   }
 
   @Test
   public void enterKeyInEditBoxSetsTheNewName() {
-    doubleClick(v.label());
+    v.label().doubleClick();
     v.editBox().press("2");
     v.editBox().keyDown(KeyCodes.KEY_ENTER);
     assertThat(todo.name.get(), is("todo2"));
@@ -47,7 +48,7 @@ public class TodoPresenterTest extends AbstractPresenterTest {
 
   @Test
   public void escapeKeyInEditBoxLeavesTheOldName() {
-    doubleClick(v.label());
+    v.label().doubleClick();
     v.editBox().press("2");
     v.editBox().keyDown(KeyCodes.KEY_ESCAPE);
     assertThat(todo.name.get(), is("todo"));
@@ -58,7 +59,7 @@ public class TodoPresenterTest extends AbstractPresenterTest {
 
   @Test
   public void blurInEditBoxSetsTheNewName() {
-    doubleClick(v.label());
+    v.label().doubleClick();
     v.editBox().press("2");
     v.editBox().blur();
     assertThat(todo.name.get(), is("todo2"));
@@ -109,14 +110,10 @@ public class TodoPresenterTest extends AbstractPresenterTest {
   @Test
   public void changingTextToEmptyStringRemovesTheTodo() {
     assertThat(state.allTodos.get().size(), is(1));
-    doubleClick(v.label());
+    v.label().doubleClick();
     v.editBox().type("");
     v.editBox().blur();
     assertThat(state.allTodos.get().size(), is(0));
-  }
-
-  private void doubleClick(IsWidget w) {
-    w.fireEvent(new StubDoubleClickEvent());
   }
 
 }

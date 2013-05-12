@@ -47,8 +47,8 @@ public class TodoPresenter extends BasicPresenter<IsTodoView> {
     binder.bind(todo.done).to(view.checkBox());
     binder.when(todo.done).is(true).set(bs.completed()).on(view.li());
 
-    binder.onDoubleClick(wrap(view.label())).set(editing).to(true);
-    binder.onDoubleClick(wrap(view.label())).focus(view.editBox());
+    binder.onDoubleClick(view.label()).set(editing).to(true);
+    binder.onDoubleClick(view.label()).focus(view.editBox());
 
     // reset the editBox to todo.name each time we start editing
     binder.when(editing).is(true).set(view.editBox()).to(todo.name);
@@ -69,18 +69,5 @@ public class TodoPresenter extends BasicPresenter<IsTodoView> {
       }
     }
   };
-
-  // Hack to enable double-clicking on a widget that doesn't implement HasDoubleClickHandlers
-  private static HasDoubleClickHandlers wrap(final IsWidget w) {
-    return new HasDoubleClickHandlers() {
-      public void fireEvent(GwtEvent<?> event) {
-        w.fireEvent(event);
-      }
-
-      public HandlerRegistration addDoubleClickHandler(DoubleClickHandler handler) {
-        return w.addDomHandler(handler, DoubleClickEvent.getType());
-      }
-    };
-  }
 
 }
