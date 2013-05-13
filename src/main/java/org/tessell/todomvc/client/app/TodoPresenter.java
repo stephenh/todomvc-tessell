@@ -32,8 +32,6 @@ public class TodoPresenter extends BasicPresenter<IsTodoView> {
   public void onBind() {
     super.onBind();
 
-    binder.when(editing).is(true).set(bs.editing()).on(view.li());
-
     binder.bind(todo.name).to(innerTextOf(view.label()));
     binder.when(todo.name).is(nullValue()).remove(todo).from(state.allTodos);
 
@@ -45,6 +43,7 @@ public class TodoPresenter extends BasicPresenter<IsTodoView> {
 
     // reset the editBox to todo.name each time we start editing
     binder.when(editing).is(true).set(view.editBox()).to(todo.name);
+    binder.when(editing).is(true).set(bs.editing()).on(view.li());
 
     binder.onKeyDown(view.editBox(), KEY_ESCAPE).set(editing).to(false);
     binder.onKeyDown(view.editBox(), KEY_ENTER).execute(saveNewValue);
