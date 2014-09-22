@@ -46,7 +46,7 @@ public class TodoPresenterTest extends AbstractPresenterTest {
   @Test
   public void escapeKeyInEditBoxLeavesTheOldName() {
     v.label().doubleClick();
-    v.editBox().press("2");
+    v.editBox().keyPress('2');
     v.editBox().keyDown(KeyCodes.KEY_ESCAPE);
     assertThat(todo.name.get(), is("todo"));
     // later the box will blur, forget it

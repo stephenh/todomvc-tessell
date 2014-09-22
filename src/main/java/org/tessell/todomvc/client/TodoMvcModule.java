@@ -21,7 +21,7 @@ public class TodoMvcModule implements EntryPoint {
     AppState state = new AppState();
     AppPresenter p = new AppPresenter(state);
     p.bind();
-    RootPanel.get().add(p);
+    RootPanel.get().add(p.getView());
   }
 
 }

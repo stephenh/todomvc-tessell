@@ -4,6 +4,6 @@
   <gwt:HTMLPanel>
     <gwt:SimpleCheckBox ui:field="toggleAll" styleName="{bs.toggleAll} "/>
     <label class="{bs.toggleAll}">Mark all as complete</label><!-- Not currently hooked up to the checkbox... -->
-    <gwt:HTMLPanel ui:field="ul" tag="ul" styleName="{bs.todoList}" />
+    <gwt:FlowPanel ui:field="ul" tag="ul" styleName="{bs.todoList}" />
   </gwt:HTMLPanel>
 </ui:UiBinder>
