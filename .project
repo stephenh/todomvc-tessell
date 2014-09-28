@@ -31,8 +31,8 @@
 		</buildCommand>
 	</buildSpec>
 	<natures>
+		<nature>org.springsource.ide.eclipse.gradle.core.nature</nature>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 		<nature>com.google.gwt.eclipse.core.gwtNature</nature>
-		<nature>org.apache.ivyde.eclipse.ivynature</nature>
 	</natures>
 </projectDescription>

@@ -6,3 +6,5 @@
 /target
 /reports
 /.gwt
+/build
+/.gradle
