@@ -27,8 +27,7 @@ public class AppPresenter extends BasicPresenter<IsAppView> {
     add(new FooterPresenter(state), view.footerPlaceholder());
     view.root().addAndReplaceElement(newInfoView(), view.infoPlaceholder());
 
-    binder.when(state.allTodos.size()).is(0).hide(view.main());
-    binder.when(state.allTodos.size()).is(0).hide(view.footer());
+    binder.when(state.allTodos.size()).is(0).hide(view.main(), view.footer());
   }
 
   private void add(Presenter p, IsElement placeholder) {
