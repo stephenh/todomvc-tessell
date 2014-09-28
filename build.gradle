@@ -24,8 +24,8 @@ repositories {
 }
 
 dependencies {
-  compile 'org.tessell:tessell-user:2.17.1'
-  compile 'org.tessell:tessell-dev:2.17.1'
+  compile 'org.tessell:tessell-user:2.17.2'
+  compile 'org.tessell:tessell-dev:2.17.2'
   testCompile 'org.hamcrest:hamcrest-all:1.3'
   testCompile 'junit:junit-dep:4.8.2'
 }
