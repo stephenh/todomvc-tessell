@@ -4,6 +4,7 @@ import static org.tessell.model.dsl.TakesValues.textOf;
 import static org.tessell.model.properties.NewProperty.stringProperty;
 import static org.tessell.todomvc.client.views.AppViews.newFooterView;
 
+import org.tessell.model.properties.DerivedProperty;
 import org.tessell.model.values.DerivedValue;
 import org.tessell.presenter.BasicPresenter;
 import org.tessell.todomvc.client.model.AppState;
@@ -26,11 +27,11 @@ public class FooterPresenter extends BasicPresenter<IsFooterView> {
     super.onBind();
 
     binder.bind(state.numberLeft.asString()).to(textOf(view.numberLeft()));
-    binder.bind(stringProperty(new DerivedValue<String>() {
-      public String get() {
+    binder.bind(new DerivedProperty<String>() {
+      public String getDerivedValue() {
         return state.numberLeft.get() == 1 ? "item" : "items";
       }
-    })).to(textOf(view.numberLeftWord()));
+    }).to(textOf(view.numberLeftWord()));
 
     binder.when(state.doneTodos.size()).is(0).hide(view.clearCompleted());
     binder.bind(stringProperty(new DerivedValue<String>() {
