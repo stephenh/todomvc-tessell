@@ -13,9 +13,9 @@ import com.google.gwt.event.dom.client.KeyCodes;
 
 public class HeaderPresenterTest extends AbstractPresenterTest {
 
-  final ListProperty<Todo> todos = listProperty("todos");
-  final HeaderPresenter p = bind(new HeaderPresenter(todos));
-  final StubHeaderView v = (StubHeaderView) p.getView();
+  private final ListProperty<Todo> todos = listProperty("todos");
+  private final HeaderPresenter p = bind(new HeaderPresenter(todos));
+  private final StubHeaderView v = (StubHeaderView) p.getView();
 
   @Test
   public void enterOnEmptyContentDoesNothing() {
