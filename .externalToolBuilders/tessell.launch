@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <launchConfiguration type="org.eclipse.ui.externaltools.ProgramBuilderLaunchConfigurationType">
-<stringAttribute key="org.eclipse.debug.core.ATTR_REFRESH_SCOPE" value="${working_set:&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#10;&lt;resources&gt;&#10;&lt;item path=&quot;/todomvc-tessell/target/generated&quot; type=&quot;2&quot;/&gt;&#10;&lt;/resources&gt;}"/>
+<stringAttribute key="org.eclipse.debug.core.ATTR_REFRESH_SCOPE" value="${working_set:&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#10;&lt;resources&gt;&#10;&lt;item path=&quot;/todomvc-tessell/build/gen-java-src&quot; type=&quot;2&quot;/&gt;&#10;&lt;/resources&gt;}"/>
 <booleanAttribute key="org.eclipse.debug.ui.ATTR_LAUNCH_IN_BACKGROUND" value="false"/>
 <stringAttribute key="org.eclipse.ui.externaltools.ATTR_BUILD_SCOPE" value="${working_set:&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#10;&lt;resources&gt;&#10;&lt;item path=&quot;/todomvc-tessell/src/main/java/org/tessell/todomvc/client/resources&quot; type=&quot;2&quot;/&gt;&#10;&lt;item path=&quot;/todomvc-tessell/src/main/java/org/tessell/todomvc/client/views&quot; type=&quot;2&quot;/&gt;&#10;&lt;/resources&gt;}"/>
 <stringAttribute key="org.eclipse.ui.externaltools.ATTR_LOCATION" value="${workspace_loc:/todomvc-tessell/gradlew}"/>
