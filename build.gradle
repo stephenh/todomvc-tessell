@@ -39,8 +39,11 @@ sourceSets {
 }
 
 gwt {
-    modules 'org.tessell.todomvc.TodoMvc'
-    maxHeapSize = "2048M";
+  modules 'org.tessell.todomvc.TodoMvc'
+  maxHeapSize = "2048M";
+  compiler {
+    strict = true;
+  }
 }
 
 task wrapper(type: Wrapper) {
